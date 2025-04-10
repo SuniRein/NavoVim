@@ -31,3 +31,6 @@ opt.smartcase = true
 -- undo 永久化
 opt.undofile = true
 opt.undodir = vim.fn.stdpath("cache") .. "/undo"
+
+-- 禁用状态条
+opt.laststatus = 0
