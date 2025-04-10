@@ -1,0 +1,33 @@
+local opt = vim.opt
+
+-- 行号
+opt.relativenumber = true
+opt.number = true
+
+-- 缩进
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = true
+
+-- 自动换行
+opt.wrap = true
+
+-- 高亮当前行、列
+opt.cursorline = true
+opt.cursorcolumn = true
+
+-- 系统剪切板
+opt.clipboard:append("unnamedplus")
+
+-- 默认新窗口右和下
+opt.splitright = true
+opt.splitbelow = true
+
+-- 搜索不区分大小写
+opt.ignorecase = true
+opt.smartcase = true
+
+-- undo 永久化
+opt.undofile = true
+opt.undodir = vim.fn.stdpath("cache") .. "/undo"
