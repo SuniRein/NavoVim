@@ -1,6 +1,4 @@
--- Make sure to setup `mapleader` and `maplocalleader` before
-vim.g.mapleader = " "
-
 require("core.options")
+require("core.keymaps")
 
 require("config.lazy")
