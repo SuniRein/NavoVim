@@ -18,6 +18,7 @@ return {
             { "<M-O>", "<cmd>BufferLineMoveNext<CR>", silent = true, desc = "buffer: Move current to next" },
 
             { "<M-q>", "<cmd>bdelete<CR>", silent = true, desc = "buffer: Close current" },
+            { "<M-Q>", "<cmd>bdelete!<CR>", silent = true, desc = "buffer: Close current" },
             { "<leader>bc", "<cmd>BufferLinePickClose<CR>", silent = true, desc = "buffer: Close pick one" },
             { "<leader>bC", "<cmd>BufferLineCloseOthers<CR>", silent = true, desc = "buffer: Close others" },
 
