@@ -5,6 +5,7 @@ return {
         cmd = { "ConformInfo" },
         keys = {
             { "<M-f>", "<cmd>Format<CR>", desc = "formatter: Format buffer" },
+            { "<M-F>", "<cmd>FormatToggle!<CR>", desc = "formatter: Auto format toggle (buffer)" },
         },
 
         init = function()
@@ -47,6 +48,30 @@ return {
                 end
             end, {
                 desc = "Enable autoformat-on-save",
+                bang = true,
+            })
+
+            vim.api.nvim_create_user_command("FormatToggle", function(args)
+                -- FormatToggle! will toggle formatting just for this buffer
+                if args.bang then
+                    if vim.b.disable_autoformat then
+                        vim.notify("Autoformatting enabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
+                        vim.b.disable_autoformat = false
+                    else
+                        vim.notify("Autoformatting disabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
+                        vim.b.disable_autoformat = true
+                    end
+                else
+                    if vim.g.disable_autoformat then
+                        vim.notify("Autoformatting enabled (global)", vim.log.levels.INFO, { title = "Formatter" })
+                        vim.g.disable_autoformat = false
+                    else
+                        vim.notify("Autoformatting disabled (global)", vim.log.levels.INFO, { title = "Formatter" })
+                        vim.g.disable_autoformat = true
+                    end
+                end
+            end, {
+                desc = "Toggle autoformat-on-save",
                 bang = true,
             })
         end,
