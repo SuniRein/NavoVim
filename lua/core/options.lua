@@ -35,6 +35,9 @@ opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 -- 禁用状态条
 opt.laststatus = 0
 
+-- Tab 空白符显示
 opt.list = true
 opt.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
 
+-- 关闭 Swapfile
+opt.swapfile = false
