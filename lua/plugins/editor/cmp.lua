@@ -16,10 +16,13 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "onsails/lspkind.nvim",
+
             { "saadparwaiz1/cmp_luasnip", dependencies = { "L3MON4D3/LuaSnip" } },
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
+
+            { "zbirenbaum/copilot-cmp" },
         },
         event = "InsertEnter",
         config = function()
@@ -49,8 +52,31 @@ return {
                             luasnip = "[SNIP]",
                             path = "[PATH]",
                             buffer = "[BUF]",
+                            copilot = "[AI]",
+                        },
+                        symbol_map = {
+                            Copilot = "",
                         },
                     }),
+                },
+
+                sorting = {
+                    priority_weight = 2,
+                    comparators = {
+                        require("copilot_cmp.comparators").prioritize,
+
+                        -- Below is the default comparitor list and order for nvim-cmp
+                        cmp.config.compare.offset,
+                        -- cmp.config.compare.scopes, -- this is commented in nvim-cmp too
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        cmp.config.compare.recently_used,
+                        cmp.config.compare.locality,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
                 },
 
                 matching = {
@@ -106,6 +132,7 @@ return {
                 },
 
                 sources = {
+                    { name = "copilot" },
                     { name = "nvim_lsp", max_item_count = 350 },
                     { name = "luasnip" },
                     { name = "path" },
