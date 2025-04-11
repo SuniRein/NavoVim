@@ -12,4 +12,15 @@ return {
             },
         },
     },
+
+    -- beatuiful inline diagnostics
+    {
+        "rachartier/tiny-inline-diagnostic.nvim",
+        lazy = false,
+        priority = 1000, -- needs to be loaded in first
+        init = function()
+            vim.diagnostic.config({ virtual_text = false })
+        end,
+        opts = {},
+    },
 }
