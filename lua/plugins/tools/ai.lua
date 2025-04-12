@@ -53,7 +53,7 @@ return {
     },
     {
         "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
+        dependencies = { "copilot.lua" },
         opts = {},
     },
 }
