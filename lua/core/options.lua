@@ -41,3 +41,6 @@ opt.listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←"
 
 -- 关闭 Swapfile
 opt.swapfile = false
+
+-- 设置 signcolumn 偏移，避免文本跳动
+opt.signcolumn = "yes"
