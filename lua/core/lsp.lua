@@ -1,4 +1,5 @@
 local servers = {
+    "bashls",
     "clangd",
     "lua_ls",
     "neocmake",
