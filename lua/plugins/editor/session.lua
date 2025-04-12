@@ -4,6 +4,7 @@ return {
         dependencies = {
             { "nvim-telescope/telescope.nvim", optional = true }, -- telescope extension
         },
+        event = "BufReadPre",
         cmd = {
             "SessionToggle",
             "SessionStart",
@@ -23,7 +24,7 @@ return {
         opts = {
             use_git_branch = true, -- include the git branch in the session file name
             should_save = function()
-                return vim.bo.filetype == "alpha" and false or true
+                return vim.bo.filetype ~= "alpha"
             end,
         },
         keys = {
