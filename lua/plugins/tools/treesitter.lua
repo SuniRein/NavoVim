@@ -17,6 +17,9 @@ return {
         dependencies = {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
         },
+        lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+        event = "VeryLazy",
+        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = Treesitter.ensured,

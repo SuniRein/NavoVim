@@ -45,7 +45,7 @@ return {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        event = "InsertEnter",
+        lazy = true,
         opts = {
             suggestion = { enabled = false },
             panel = { enabled = false },
@@ -54,6 +54,7 @@ return {
     {
         "zbirenbaum/copilot-cmp",
         dependencies = { "copilot.lua" },
+        lazy = true,
         opts = {},
     },
 }
