@@ -36,7 +36,7 @@ return {
             vim.diagnostic.config({ virtual_text = false })
         end,
         opts = {
-            diagnostic = { diagnostic_only_current = true },
+            diagnostic = { diagnostic_only_current = false }, -- conflict with tiny-inline-diagnostic.nvim
         },
         keys = {
             { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "lsp: Hover doc" },
