@@ -15,6 +15,9 @@ return {
                 end,
             })
         end,
-        opts = {},
+        config = function()
+            vim.g.lazydev_enabled = false
+            require("xmake").setup({})
+        end,
     },
 }
