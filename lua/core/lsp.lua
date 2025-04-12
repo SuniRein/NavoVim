@@ -1,6 +1,7 @@
 local servers = {
     "clangd",
     "lua_ls",
+    "neocmake",
 }
 
 for _, lsp in ipairs(servers) do
