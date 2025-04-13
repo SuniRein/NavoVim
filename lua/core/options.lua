@@ -1,4 +1,4 @@
-local opt = vim.opt
+local opt = vim.o
 
 -- 行号
 opt.relativenumber = true
@@ -18,7 +18,7 @@ opt.cursorline = true
 opt.cursorcolumn = true
 
 -- 系统剪切板
-opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 
 -- 默认新窗口右和下
 opt.splitright = true
