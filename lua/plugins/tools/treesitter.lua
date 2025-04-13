@@ -16,6 +16,7 @@ return {
         build = ":TSUpdate",
         dependencies = {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
+            { "andymass/vim-matchup" }, -- for matchup
         },
         lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
         event = "VeryLazy",
@@ -53,11 +54,23 @@ return {
 
                 -- indentation based on treesitter for the = operator
                 indent = { enable = true },
+
+                -- with vim-matchup
+                matchup = { enable = true },
             })
 
             vim.wo.foldmethod = "expr"
             vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldlevel = 99
         end,
+    },
+
+    {
+        "andymass/vim-matchup",
+        lazy = true,
+        init = function()
+            vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
+        end,
+        opts = {},
     },
 }

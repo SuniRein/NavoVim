@@ -33,6 +33,7 @@
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "842983e91e0b8825f1084b8323c7806c8bf64c74" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
+  "vim-matchup": { "branch": "master", "commit": "ea2ff43e09e68b63fc6d9268fc5d82d82d433cb3" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "xmake.nvim": { "branch": "main", "commit": "4f03aa221ebb462f3ce013fc48d4d32b88b6ded8" },
   "yazi.nvim": { "branch": "main", "commit": "dd59edc7a6af25b8daf497388621260ce9b5306c" }
