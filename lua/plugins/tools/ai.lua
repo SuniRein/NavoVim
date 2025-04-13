@@ -45,16 +45,28 @@ return {
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
-        lazy = true,
+        event = "InsertEnter",
         opts = {
             suggestion = { enabled = false },
             panel = { enabled = false },
         },
     },
     {
-        "zbirenbaum/copilot-cmp",
-        dependencies = { "copilot.lua" },
-        lazy = true,
-        opts = {},
+        "saghen/blink.cmp",
+        optional = true,
+        dependencies = { "fang2hou/blink-copilot" },
+        opts = {
+            sources = {
+                default = { "copilot" },
+                providers = {
+                    copilot = {
+                        name = "copilot",
+                        module = "blink-copilot",
+                        score_offset = 100,
+                        async = true,
+                    },
+                },
+            },
+        },
     },
 }
