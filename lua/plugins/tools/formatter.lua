@@ -4,8 +4,8 @@ return {
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         keys = {
-            { "<M-f>", "<cmd>Format<CR>", desc = "formatter: Format buffer" },
-            { "<M-F>", "<cmd>FormatToggle!<CR>", desc = "formatter: Auto format toggle (buffer)" },
+            { "<M-F>", "<cmd>Format<CR>", desc = "formatter: Format buffer" },
+            { "<M-f>", "<cmd>FormatToggle!<CR>", desc = "formatter: Auto format toggle (buffer)" },
         },
 
         init = function()
