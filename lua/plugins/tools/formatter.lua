@@ -29,7 +29,7 @@ return {
         end,
 
         ---@module "conform"
-        ---@type conform.setupOpts
+        ---@type fun(): conform.setupOpts
         opts = function()
             Snacks.toggle({
                 name = "Auto Format (buffer)",
