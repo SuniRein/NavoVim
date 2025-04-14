@@ -9,7 +9,7 @@ return {
             },
         },
         keys = {
-            { "<leader>go", "<cmd>Outline<cr>", desc = "outline: Toggle" },
+            { "<leader>uo", "<cmd>Outline<cr>", desc = "Toggle Outline" },
         },
     },
 }

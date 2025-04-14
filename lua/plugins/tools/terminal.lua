@@ -1,23 +1,3 @@
-local lazygit = nil
-local function toggle_lazygit()
-    if vim.fn.executable("lazygit") == 1 then
-        if not lazygit then
-            lazygit = require("toggleterm.terminal").Terminal:new({
-                cmd = "lazygit",
-                direction = "float",
-                close_on_exit = true,
-                hidden = true,
-                float_opts = {
-                    border = "none",
-                },
-            })
-        end
-        lazygit:toggle()
-    else
-        vim.notify("Command [lazygit] not found!", vim.log.levels.ERROR, { title = "toggleterm.nvim" })
-    end
-end
-
 return {
     {
         "akinsho/toggleterm.nvim",
@@ -55,13 +35,6 @@ return {
         },
         keys = {
             { "<M-d>", "<cmd>ToggleTerm<CR>", mode = { "n", "t" }, desc = "terminal: Toggle" },
-            {
-                "<leader>gg",
-                function()
-                    toggle_lazygit()
-                end,
-                desc = "terminal: Toggle lazygit",
-            },
         },
     },
 }

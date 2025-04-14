@@ -30,8 +30,8 @@ return {
             },
         },
         keys = {
-            { "<leader>mt", "<cmd>Markview toggle<CR>", desc = "markview: Toggle preview" },
-            { "<leader>ms", "<cmd>Markview splitToggle<CR>", desc = "markview: Toggle split" },
+            { "<leader>um", "<cmd>Markview toggle<CR>", desc = "Toggle Markdown Preview" },
+            { "<leader>uM", "<cmd>Markview splitToggle<CR>", desc = "Toggle Markdown Split" },
         },
     },
 }

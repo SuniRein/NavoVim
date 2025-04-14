@@ -11,21 +11,19 @@ return {
         },
         lazy = false,
         keys = {
-            { "<M-i>", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "buffer: Switch to prev (cycle)" },
-            { "<M-o>", "<cmd>BufferLineCycleNext<CR>", silent = true, desc = "buffer: Switch to next (cycle)" },
+            { "<M-i>", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Switch to Prev (cycle)" },
+            { "<M-o>", "<cmd>BufferLineCycleNext<CR>", silent = true, desc = "Switch to Next (cycle)" },
 
-            { "<M-I>", "<cmd>BufferLineMovePrev<CR>", silent = true, desc = "buffer: Move current to prev" },
-            { "<M-O>", "<cmd>BufferLineMoveNext<CR>", silent = true, desc = "buffer: Move current to next" },
+            { "<M-I>", "<cmd>BufferLineMovePrev<CR>", silent = true, desc = "Move Current to Prev" },
+            { "<M-O>", "<cmd>BufferLineMoveNext<CR>", silent = true, desc = "Move Current to Next" },
 
-            { "<M-q>", "<cmd>bdelete<CR>", silent = true, desc = "buffer: Close current" },
-            { "<M-Q>", "<cmd>bdelete!<CR>", silent = true, desc = "buffer: Close current (force)" },
-            { "<leader>bc", "<cmd>BufferLinePickClose<CR>", silent = true, desc = "buffer: Close pick one" },
-            { "<leader>bC", "<cmd>BufferLineCloseOthers<CR>", silent = true, desc = "buffer: Close others" },
+            { "<leader>bc", "<cmd>BufferLinePickClose<CR>", silent = true, desc = "Close Pick One" },
+            { "<leader>bC", "<cmd>BufferLineCloseOthers<CR>", silent = true, desc = "Close Others" },
 
-            { "<leader>bp", "<cmd>BufferLineTogglePin<CR>", silent = true, desc = "buffer: Toggle pin" },
+            { "<leader>bp", "<cmd>BufferLineTogglePin<CR>", silent = true, desc = "Toggle Pin" },
 
-            { "<leader>be", "<cmd>BufferLineSortByExtension<CR>", silent = true, desc = "buffer: Sort by extension" },
-            { "<leader>bd", "<cmd>BufferLineSortByDirectory<CR>", silent = true, desc = "buffer: sort by directory" },
+            { "<leader>be", "<cmd>BufferLineSortByExtension<CR>", silent = true, desc = "Sort by Extension" },
+            { "<leader>bd", "<cmd>BufferLineSortByDirectory<CR>", silent = true, desc = "Sort by Directory" },
         },
     },
 }

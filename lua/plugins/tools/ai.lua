@@ -15,7 +15,6 @@ return {
             },
             display = {
                 action_palette = {
-                    provider = "telescope",
                     opts = {
                         show_default_actions = true,
                         show_default_prompt_library = true,
@@ -32,7 +31,7 @@ return {
         },
         keys = {
             { "<M-'>", "<cmd>CodeCompanionChat Toggle<CR>", desc = "ai: Toggle chat panel" },
-            { "<leader>fa", "<cmd>CodeCompanionActions<CR>", desc = "telescope: AI actions" },
+            { "<leader>sa", "<cmd>CodeCompanionActions<CR>", desc = "AI actions" },
         },
         cmd = {
             "CodeCompanion",

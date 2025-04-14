@@ -6,14 +6,5 @@ return {
         opts = {
             preset = "modern",
         },
-        keys = {
-            {
-                "<leader>?",
-                function()
-                    require("which-key").show({ global = true })
-                end,
-                desc = "helper: Show all keymaps (which-key)",
-            },
-        },
     },
 }
