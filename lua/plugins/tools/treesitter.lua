@@ -18,6 +18,7 @@ return {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
             { "andymass/vim-matchup" }, -- for matchup
             { "nvim-treesitter/nvim-treesitter-context" },
+            { "nvim-treesitter/nvim-treesitter-textobjects" },
         },
         lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
         event = "VeryLazy",
@@ -58,6 +59,51 @@ return {
 
                 -- with vim-matchup
                 matchup = { enable = true },
+
+                -- with nvim-treesitter-textobjects
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            ["ic"] = "@class.inner",
+                            ["as"] = "@local.scope",
+                        },
+                        include_surrounding_whitespace = false,
+                    },
+                    swap = {
+                        enable = true,
+                        swap_next = {
+                            ["<leader>Sa"] = "@parameter.inner",
+                        },
+                        swap_previous = {
+                            ["<leader>SA"] = "@parameter.inner",
+                        },
+                    },
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            ["]["] = "@function.outer",
+                            ["]m"] = "@class.outer",
+                        },
+                        goto_next_end = {
+                            ["]]"] = "@function.outer",
+                            ["]M"] = "@class.outer",
+                        },
+                        goto_previous_start = {
+                            ["[["] = "@function.outer",
+                            ["[m"] = "@class.outer",
+                        },
+                        goto_previous_end = {
+                            ["[]"] = "@function.outer",
+                            ["[M"] = "@class.outer",
+                        },
+                    },
+                },
             })
 
             vim.wo.foldmethod = "expr"
