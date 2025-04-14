@@ -36,19 +36,19 @@ return {
             { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
 
             -- notifications
-            { "<leader>nl", function() Snacks.picker.notifications() end, desc = "Notification List" },
-            { "<leader>nh", function() Snacks.notifier.hide() end, desc = "Hide All Notifications" },
+            { "<leader>nl", function() Snacks.picker.notifications() end, desc = "History List" },
+            { "<leader>nh", function() Snacks.notifier.hide() end, desc = "Hide All" },
 
             -- find
             { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
-            { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-            { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-            { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Find Git Files" },
+            { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Config File" },
+            { "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
+            { "<leader>fg", function() Snacks.picker.git_files() end, desc = "Git Files" },
             { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
             { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
 
             -- git
-            { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
+            { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Open Browser", mode = { "n", "v" } },
             { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
 
             -- search
@@ -101,9 +101,6 @@ return {
                     Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>ul")
                     Snacks.toggle.line_number():map("<leader>uL")
                     Snacks.toggle.diagnostics():map("<leader>ud")
-                    Snacks.toggle
-                        .option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 })
-                        :map("<leader>uc")
                     Snacks.toggle.treesitter():map("<leader>ut")
                     Snacks.toggle
                         .option("background", { off = "light", on = "dark", name = "Dark Background" })

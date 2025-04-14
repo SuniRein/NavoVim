@@ -14,12 +14,12 @@ return {
             {
                 "<leader>cw",
                 "<cmd>Yazi cwd<cr>",
-                desc = "Open the file manager in nvim's working directory",
+                desc = "Open yazi in working directory",
             },
             {
                 "<leader>cf",
                 "<cmd>Yazi<cr>",
-                desc = "Open yazi at the current file",
+                desc = "Open yazi at current file",
             },
         },
         opts = {

@@ -1,15 +1,34 @@
 return {
     {
         "hedyhli/outline.nvim",
-        cmd = { "Outline", "OutlineOpen" },
-        opts = {
-            preview_window = {
-                auto_preview = true,
-                border = "rounded",
-            },
+        dependencies = {
+            "folke/snacks.nvim",
         },
+        cmd = { "Outline", "OutlineOpen" },
+        opts = function()
+            local outline = require("outline")
+
+            Snacks.toggle({
+                name = "Outline",
+                get = outline.is_open,
+                set = function(state)
+                    if state then
+                        outline.open()
+                    else
+                        outline.close()
+                    end
+                end,
+            }):map("<leader>uo")
+
+            return {
+                preview_window = {
+                    auto_preview = true,
+                    border = "rounded",
+                },
+            }
+        end,
         keys = {
-            { "<leader>uo", "<cmd>Outline<cr>", desc = "Toggle Outline" },
+            { "<leader>uo", desc = "Enable Outline" },
         },
     },
 }

@@ -1,11 +1,15 @@
 return {
     {
         "stevearc/conform.nvim",
+        dependencies = {
+            "folke/snacks.nvim",
+        },
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
         keys = {
-            { "<M-F>", "<cmd>Format<CR>", desc = "formatter: Format buffer" },
-            { "<M-f>", "<cmd>FormatToggle!<CR>", desc = "formatter: Auto format toggle (buffer)" },
+            { "<C-M-f>", "<cmd>Format<CR>", desc = "Format Buffer" },
+            { "<M-f>" },
+            { "<M-F>" },
         },
 
         init = function()
@@ -22,84 +26,54 @@ return {
                 end
                 require("conform").format({ async = true, lsp_format = "fallback", range = range })
             end, { range = true })
-
-            vim.api.nvim_create_user_command("FormatDisable", function(args)
-                -- FormatDisable! will disable formatting just for this buffer
-                if args.bang then
-                    vim.notify("Autoformatting disabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
-                    vim.b.disable_autoformat = true
-                else
-                    vim.notify("Autoformatting disabled (global)", vim.log.levels.INFO, { title = "Formatter" })
-                    vim.g.disable_autoformat = true
-                end
-            end, {
-                desc = "Disable autoformat-on-save",
-                bang = true,
-            })
-
-            vim.api.nvim_create_user_command("FormatEnable", function(args)
-                -- FormatEnable! will enable formatting just for this buffer
-                if args.bang then
-                    vim.notify("Autoformatting enabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
-                    vim.b.disable_autoformat = false
-                else
-                    vim.notify("Autoformatting enabled (global)", vim.log.levels.INFO, { title = "Formatter" })
-                    vim.g.disable_autoformat = false
-                end
-            end, {
-                desc = "Enable autoformat-on-save",
-                bang = true,
-            })
-
-            vim.api.nvim_create_user_command("FormatToggle", function(args)
-                -- FormatToggle! will toggle formatting just for this buffer
-                if args.bang then
-                    if vim.b.disable_autoformat then
-                        vim.notify("Autoformatting enabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
-                        vim.b.disable_autoformat = false
-                    else
-                        vim.notify("Autoformatting disabled (buffer)", vim.log.levels.INFO, { title = "Formatter" })
-                        vim.b.disable_autoformat = true
-                    end
-                else
-                    if vim.g.disable_autoformat then
-                        vim.notify("Autoformatting enabled (global)", vim.log.levels.INFO, { title = "Formatter" })
-                        vim.g.disable_autoformat = false
-                    else
-                        vim.notify("Autoformatting disabled (global)", vim.log.levels.INFO, { title = "Formatter" })
-                        vim.g.disable_autoformat = true
-                    end
-                end
-            end, {
-                desc = "Toggle autoformat-on-save",
-                bang = true,
-            })
         end,
 
         ---@module "conform"
         ---@type conform.setupOpts
-        opts = {
-            default_format_opts = {
-                lsp_format = "fallback",
-            },
+        opts = function()
+            Snacks.toggle({
+                name = "Auto Format (buffer)",
+                get = function()
+                    return vim.b.autoformat ~= false
+                end,
+                set = function(state)
+                    vim.b.autoformat = state
+                end,
+            }):map("<M-f>")
 
-            format_on_save = function(bufnr)
-                if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            Snacks.toggle({
+                name = "Auto Format (global)",
+                get = function()
+                    return vim.g.autoformat ~= false
+                end,
+                set = function(state)
+                    vim.g.autoformat = state
+                end,
+            }):map("<M-F>")
+
+            return {
+                default_format_opts = {
+                    lsp_format = "fallback",
+                },
+
+                format_on_save = function(bufnr)
+                    if vim.g.autoformat ~= false and vim.b.autoformat ~= false then
+                        return { timeout_ms = 500 }
+                    end
                     return nil
-                end
-                return { timeout_ms = 500 }
-            end,
+                end,
 
-            formatters_by_ft = {
-                c = { "clang-format" },
-                cpp = { "clang-format" },
+                formatters_by_ft = {
+                    c = { "clang-format" },
+                    cpp = { "clang-format" },
 
-                lua = { "stylua" },
-            },
+                    lua = { "stylua" },
+                },
 
-            formatters = {
-                stylua = { prepend_args = { "--indent-type", "Spaces" } },
-            },
-        },
+                formatters = {
+                    stylua = { prepend_args = { "--indent-type", "Spaces" } },
+                },
+            }
+        end,
     },
 }

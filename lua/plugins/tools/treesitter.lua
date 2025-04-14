@@ -123,18 +123,33 @@ return {
 
     {
         "nvim-treesitter/nvim-treesitter-context",
-        lazy = true,
-        opts = {
-            max_lines = 4,
+        dependencies = {
+            "folke/snacks.nvim",
         },
+        lazy = true,
+        opts = function()
+            local tsc = require("treesitter-context")
+            Snacks.toggle({
+                name = "Treesitter Context",
+                get = tsc.enabled,
+                set = function(state)
+                    if state then
+                        tsc.enable()
+                    else
+                        tsc.disable()
+                    end
+                end,
+            }):map("<leader>uc")
+
+            return { max_lines = 4 }
+        end,
         keys = {
-            { "<M-c>", "<cmd>TSContextToggle<CR>", desc = "treesitter: Toggle context" },
             {
                 "[c",
                 function()
                     require("treesitter-context").go_to_context(vim.v.count1)
                 end,
-                desc = "treesitter: Jump to context",
+                desc = "Jump to Context",
             },
         },
     },

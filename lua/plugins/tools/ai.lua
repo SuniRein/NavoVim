@@ -30,7 +30,7 @@ return {
             },
         },
         keys = {
-            { "<M-'>", "<cmd>CodeCompanionChat Toggle<CR>", desc = "ai: Toggle chat panel" },
+            { "<M-'>", "<cmd>CodeCompanionChat Toggle<CR>", desc = "Toggle AI Chat Panel" },
             { "<leader>sa", "<cmd>CodeCompanionActions<CR>", desc = "AI actions" },
         },
         cmd = {
