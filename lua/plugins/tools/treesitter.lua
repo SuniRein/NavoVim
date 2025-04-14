@@ -17,6 +17,7 @@ return {
         dependencies = {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
             { "andymass/vim-matchup" }, -- for matchup
+            { "nvim-treesitter/nvim-treesitter-context" },
         },
         lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
         event = "VeryLazy",
@@ -72,5 +73,23 @@ return {
             vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
         end,
         opts = {},
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        lazy = true,
+        opts = {
+            max_lines = 4,
+        },
+        keys = {
+            { "<M-c>", "<cmd>TSContextToggle<CR>", desc = "treesitter: Toggle context" },
+            {
+                "[c",
+                function()
+                    require("treesitter-context").go_to_context(vim.v.count1)
+                end,
+                desc = "treesitter: Jump to context",
+            },
+        },
     },
 }
