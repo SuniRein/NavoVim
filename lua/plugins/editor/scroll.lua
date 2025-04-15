@@ -7,4 +7,10 @@ return {
             { "k", "<Plug>(accelerated_jk_gk)", desc = "accelerated k" },
         },
     },
+
+    {
+        "karb94/neoscroll.nvim",
+        event = "LazyFile",
+        opts = {},
+    },
 }
