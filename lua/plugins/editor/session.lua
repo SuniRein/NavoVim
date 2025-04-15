@@ -18,7 +18,7 @@ return {
         opts = {
             use_git_branch = true, -- include the git branch in the session file name
             should_save = function()
-                return vim.bo.filetype ~= "alpha"
+                return vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "grug-far"
             end,
         },
         keys = {
