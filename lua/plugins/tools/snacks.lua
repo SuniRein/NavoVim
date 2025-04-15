@@ -24,7 +24,6 @@ return {
             input = {},
             notifier = {},
             scope = {},
-            words = {},
         },
 
         keys = {
