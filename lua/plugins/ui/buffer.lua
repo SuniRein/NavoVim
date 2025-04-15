@@ -3,13 +3,13 @@ return {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
+        event = "VeryLazy",
         opts = {
             options = {
                 separator_style = "slant",
                 always_show_bufferline = true,
             },
         },
-        lazy = false,
         keys = {
             { "<M-i>", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Switch to Prev (cycle)" },
             { "<M-o>", "<cmd>BufferLineCycleNext<CR>", silent = true, desc = "Switch to Next (cycle)" },
