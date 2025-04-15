@@ -3,7 +3,7 @@ return {
         "saghen/blink.cmp",
         version = "1.*", -- use a release tag to download pre-built binaries
         dependencies = { "L3MON4D3/LuaSnip" },
-        event = "InsertEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
 
         ---@module 'blink.cmp'
         ---@type blink.cmp.Config

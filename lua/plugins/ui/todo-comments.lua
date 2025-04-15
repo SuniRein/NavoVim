@@ -4,7 +4,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        event = "VeryLazy",
+        event = "LazyFile",
         opts = {
             keywords = {
                 FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },

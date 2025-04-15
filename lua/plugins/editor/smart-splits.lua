@@ -2,7 +2,7 @@ return {
     {
         "mrjones2014/smart-splits.nvim",
         lazy = true,
-        event = { "CursorHoldI", "CursorHold" },
+        event = "LazyFile",
         opts = {},
         keys = {
             { "<M-h>", "<cmd>SmartResizeLeft<CR>", desc = "window: Resize left" },

@@ -4,7 +4,7 @@ return {
         dependencies = {
             "folke/snacks.nvim",
         },
-        event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        event = "LazyFile",
         opts = function()
             local lh = require("local-highlight")
 
