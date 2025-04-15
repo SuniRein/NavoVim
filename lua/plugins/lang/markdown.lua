@@ -11,7 +11,7 @@ return {
         dependencies = {
             "folke/snacks.nvim",
         },
-        lazy = false, -- the plugin has enabled lazy loading itself
+        ft = { "markdown" },
         init = function()
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = supported_filetypes,
