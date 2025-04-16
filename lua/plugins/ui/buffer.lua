@@ -3,7 +3,7 @@ return {
         "akinsho/bufferline.nvim",
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
-        event = "VeryLazy",
+        event = "LazyFile",
         opts = {
             options = {
                 separator_style = "slant",
