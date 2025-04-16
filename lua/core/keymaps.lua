@@ -12,4 +12,4 @@ local function map_cr(mode, key, cmd_string, desc)
     vim.keymap.set(mode, key, cmd, opts)
 end
 
-map_cr("n", "<C-s>", "w", "edit: Save file")
+map_cr("n", "<C-s>", "w", "Save File")
