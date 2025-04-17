@@ -5,6 +5,7 @@ return {
         build = "make install_jsregexp",
         lazy = true,
         opts = function()
+            vim.cmd(("source %s"):format(vim.fn.stdpath("config") .. "/snippets/snippet.vim"))
             require("luasnip.loaders.from_snipmate").lazy_load()
         end,
     },
