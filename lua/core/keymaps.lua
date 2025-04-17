@@ -13,3 +13,10 @@ local function map_cr(mode, key, cmd_string, desc)
 end
 
 map_cr("n", "<C-s>", "w", "Save File")
+
+vim.keymap.set("n", "<C-p>", "", {
+    desc = "Show Buffer Status",
+    callback = function()
+        require("utils.status").display()
+    end,
+})
