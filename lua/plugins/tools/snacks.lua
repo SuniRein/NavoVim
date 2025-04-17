@@ -19,7 +19,7 @@ return {
             },
             dim = {},
             indent = {
-                scope = { underline = true },
+                chunk = { enabled = true },
             },
             input = {},
             notifier = {},
