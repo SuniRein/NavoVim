@@ -27,10 +27,10 @@ Event.mappings["User LazyFile"] = Event.mappings.LazyFile
 require("lazy").setup({
     spec = {
         { import = "plugins" },
-        { import = "plugins/tools" },
-        { import = "plugins/ui" },
-        { import = "plugins/editor" },
-        { import = "plugins/lang" },
+        { import = "plugins.tools" },
+        { import = "plugins.ui" },
+        { import = "plugins.editor" },
+        { import = "plugins.lang" },
     },
     install = { colorscheme = { "catppuccin" } },
     checker = {
