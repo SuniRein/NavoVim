@@ -30,18 +30,17 @@ local function refresh()
     local bufnr = vim.api.nvim_get_current_buf()
 
     local lsp_clients = vim.lsp.get_clients({ bufnr = bufnr })
-    local lsp_name = "[ "
+    local lsp_names = {}
     for _, client in ipairs(lsp_clients) do
-        lsp_name = lsp_name .. client.name .. " "
+        lsp_names[#lsp_names + 1] = client.name
     end
-    lsp_name = lsp_name .. "]"
+    local lsp_name = "[ " .. table.concat(lsp_names, " ") .. " ]"
 
     local formatters = require("conform").list_formatters_for_buffer(bufnr)
-    local formatter_name = "[ "
-    for _, formatter in ipairs(formatters) do
-        formatter_name = formatter_name .. formatter .. " "
-    end
-    formatter_name = formatter_name .. "]"
+    local formatter_name = "[ " .. table.concat(formatters, " ") .. " ]"
+
+    local linters = require("lint").linters_by_ft[filetype]
+    local linter_name = "[ " .. table.concat(linters, " ") .. " ]"
 
     local display = {
         {
@@ -53,8 +52,12 @@ local function refresh()
             value = filetype,
         },
         {
-            key = "Lsp Attached",
+            key = "Lsp",
             value = lsp_name,
+        },
+        {
+            key = "Linter",
+            value = linter_name,
         },
         {
             key = "Formatter",
