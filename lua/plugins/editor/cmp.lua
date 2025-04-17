@@ -1,5 +1,15 @@
 return {
     {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+        lazy = true,
+        opts = function()
+            require("luasnip.loaders.from_snipmate").lazy_load()
+        end,
+    },
+
+    {
         "saghen/blink.cmp",
         version = "1.*", -- use a release tag to download pre-built binaries
         dependencies = { "L3MON4D3/LuaSnip" },
