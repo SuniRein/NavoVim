@@ -69,11 +69,16 @@ return {
 
                     lua = { "stylua" },
 
-                    javascript = { "eslint_d" },
-                    typescript = { "eslint_d" },
-                    javascriptreact = { "eslint_d" },
-                    typescriptreact = { "eslint_d" },
-                    vue = { "eslint_d" },
+                    html = { "prettierd" },
+                    css = { "prettierd" },
+
+                    javascript = { "eslint_d", "prettierd" },
+                    typescript = { "eslint_d", "prettierd" },
+                    javascriptreact = { "eslint_d", "prettierd" },
+                    typescriptreact = { "eslint_d", "prettierd" },
+                    vue = { "eslint_d", "prettierd" },
+
+                    yaml = { "prettierd" },
                 },
 
                 formatters = {
