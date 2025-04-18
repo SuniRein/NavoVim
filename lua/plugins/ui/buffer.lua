@@ -7,7 +7,27 @@ return {
         opts = {
             options = {
                 separator_style = "slant",
+
                 always_show_bufferline = true,
+
+                diagnostics = "nvim_lsp",
+                diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                    local icon = level:match("error") and " " or " "
+                    return " " .. icon .. count
+                end,
+
+                custom_areas = {
+                    right = function()
+                        local result = {}
+
+                        local reg = vim.fn.reg_recording()
+                        if reg ~= "" then
+                            table.insert(result, { text = " " .. reg, fg = "#ff9e64" })
+                        end
+
+                        return result
+                    end,
+                },
             },
         },
         keys = {
