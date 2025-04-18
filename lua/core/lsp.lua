@@ -1,6 +1,7 @@
 local servers = {
     "bashls",
     "clangd",
+    "html_lsp",
     "lua_ls",
     "neocmake",
     "volar",
