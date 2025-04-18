@@ -13,7 +13,6 @@ return {
                 { "<leader>g", group = "Git" },
                 { "<leader>n", group = "Notification" },
                 { "<leader>s", group = "Search" },
-                { "<leader>S", group = "Swap/Surround" },
                 { "<leader>u", group = "UI" },
             },
         },

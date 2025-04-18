@@ -74,15 +74,6 @@ return {
                         },
                         include_surrounding_whitespace = false,
                     },
-                    swap = {
-                        enable = true,
-                        swap_next = {
-                            ["<leader>Sa"] = "@parameter.inner",
-                        },
-                        swap_previous = {
-                            ["<leader>SA"] = "@parameter.inner",
-                        },
-                    },
                     move = {
                         enable = true,
                         set_jumps = true,
