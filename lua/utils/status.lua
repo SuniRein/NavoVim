@@ -39,7 +39,7 @@ local function refresh()
     local formatters = require("conform").list_formatters_for_buffer(bufnr)
     local formatter_name = "[ " .. table.concat(formatters, " ") .. " ]"
 
-    local linters = require("lint").linters_by_ft[filetype]
+    local linters = require("lint").linters_by_ft[filetype] or {}
     local linter_name = "[ " .. table.concat(linters, " ") .. " ]"
 
     local display = {
