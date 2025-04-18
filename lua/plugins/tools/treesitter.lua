@@ -139,7 +139,7 @@ return {
                         tsc.disable()
                     end
                 end,
-            }):map("<leader>uc")
+            }):map("<leader>ut")
 
             return { max_lines = 4 }
         end,

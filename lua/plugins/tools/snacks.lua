@@ -100,7 +100,7 @@ return {
                     Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>ul")
                     Snacks.toggle.line_number():map("<leader>uL")
                     Snacks.toggle.diagnostics():map("<leader>ud")
-                    Snacks.toggle.treesitter():map("<leader>ut")
+                    Snacks.toggle.treesitter():map("<leader>uT")
                     Snacks.toggle
                         .option("background", { off = "light", on = "dark", name = "Dark Background" })
                         :map("<leader>ub")
