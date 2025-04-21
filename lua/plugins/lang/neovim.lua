@@ -8,13 +8,15 @@ return {
     {
         "saghen/blink.cmp",
         optional = true,
-        sources = {
-            default = { "lazydev" },
-            providers = {
-                lazydev = {
-                    name = "LazyDev",
-                    module = "lazydev.integrations.blink",
-                    score_offset = 100, -- show at a higher priority than lsp
+        opts = {
+            sources = {
+                default = { "lazydev" },
+                providers = {
+                    lazydev = {
+                        name = "LazyDev",
+                        module = "lazydev.integrations.blink",
+                        score_offset = 100, -- show at a higher priority than lsp
+                    },
                 },
             },
         },
