@@ -14,3 +14,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.bo.expandtab = true
     end,
 })
+
+-- filetype verilog
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*.vh",
+    callback = function()
+        vim.bo.filetype = "verilog"
+    end,
+})
+
+-- filetype systemverilog
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*.svh",
+    callback = function()
+        vim.bo.filetype = "systemverilog"
+    end,
+})
