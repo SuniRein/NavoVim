@@ -30,3 +30,15 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.bo.filetype = "systemverilog"
     end,
 })
+
+-- K in help
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "help",
+    callback = function()
+        vim.keymap.set("n", "K", function()
+            local word = vim.fn.expand("<cword>")
+            local cmd = string.format("help %s", word)
+            vim.cmd(cmd)
+        end, { buffer = 0 })
+    end,
+})
