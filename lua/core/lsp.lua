@@ -5,6 +5,7 @@ local servers = {
     "json_lsp",
     "lua_ls",
     "neocmake",
+    "svlangserver",
     "taplo",
     "volar",
 }
