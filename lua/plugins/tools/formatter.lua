@@ -79,9 +79,12 @@ return {
                     vue = { "eslint_d", "prettierd" },
 
                     yaml = { "prettierd" },
+
+                    json = { "fixjson", lsp_format = "last" },
                 },
 
                 formatters = {
+                    fixjson = { prepend_args = { "--indent", "4" } },
                     stylua = { prepend_args = { "--indent-type", "Spaces" } },
                 },
             }
