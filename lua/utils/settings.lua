@@ -7,6 +7,7 @@ settings["lsp_enabled"] = {
     "jsonls",
     "lua_ls",
     "neocmake",
+    "rust_analyzer",
     "svlangserver",
     "taplo",
     "volar",
