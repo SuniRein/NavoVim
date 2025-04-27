@@ -13,6 +13,17 @@ return {
         },
     },
 
+    {
+        "neovim/nvim-lspconfig",
+        init = function()
+            local servers = require("utils.settings").lsp_enabled
+
+            for _, lsp in ipairs(servers) do
+                vim.lsp.enable(lsp)
+            end
+        end,
+    },
+
     -- beatuiful inline diagnostics
     {
         "rachartier/tiny-inline-diagnostic.nvim",

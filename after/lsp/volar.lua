@@ -1,3 +1,4 @@
+-- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/volar.lua
 return {
     cmd = { "vue-language-server", "--stdio" },
     filetypes = {
