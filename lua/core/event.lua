@@ -48,6 +48,11 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = "typst",
     callback = function(param)
         vim.api.nvim_buf_create_user_command(param.buf, "OpenPdf", function()
+            if vim.fn.executable("zathura") == 0 then
+                vim.notify("Zathura not found", vim.log.levels.ERROR)
+                return
+            end
+
             local filepath = vim.api.nvim_buf_get_name(param.buf)
             if filepath:match("%.typ$") then
                 local pdf_path = filepath:gsub("%.typ$", ".pdf")
