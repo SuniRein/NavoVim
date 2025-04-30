@@ -10,6 +10,7 @@ settings["lsp_enabled"] = {
     "rust_analyzer",
     "svlangserver",
     "taplo",
+    "tinymist",
     "volar",
 }
 
