@@ -14,4 +14,9 @@ settings["lsp_enabled"] = {
     "volar",
 }
 
+-- filetypes to ignore when saving sessions
+settings["session_ignored"] = {
+    "grug-far",
+}
+
 return settings

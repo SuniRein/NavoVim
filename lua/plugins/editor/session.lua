@@ -15,12 +15,23 @@ return {
             "SessionLoadFromFile",
             "SessionDelete",
         },
-        opts = {
-            use_git_branch = true, -- include the git branch in the session file name
-            should_save = function()
-                return vim.bo.filetype ~= "alpha" and vim.bo.filetype ~= "grug-far"
-            end,
-        },
+        opts = function()
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "PersistedSavePre",
+                callback = function()
+                    local ignored = require("utils.settings").session_ignored
+                    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                        if vim.tbl_contains(ignored, vim.bo[buf].filetype) then
+                            vim.api.nvim_buf_delete(buf, { force = true })
+                        end
+                    end
+                end,
+            })
+
+            return {
+                use_git_branch = true, -- include the git branch in the session file name
+            }
+        end,
         keys = {
             { "<leader>cs", "<cmd>SessionLoad<CR>", desc = "Load Current Session" },
         },
