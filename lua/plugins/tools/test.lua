@@ -34,10 +34,13 @@ return {
                 is_test_file = is_cpp_test_file,
             })
 
+            local rust = require("rustaceanvim.neotest")
+
             return {
                 adapters = {
                     vitest,
                     gtest,
+                    rust,
                 },
             }
         end,
