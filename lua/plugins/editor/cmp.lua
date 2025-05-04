@@ -21,7 +21,7 @@ return {
         opts = {
             keymap = {
                 preset = "none",
-                ["<CR>"] = { "select_and_accept", "fallback" },
+                ["<CR>"] = { "accept", "fallback" },
                 ["<C-space>"] = { "show", "fallback" },
                 ["<ESC>"] = { "hide", "fallback" },
                 ["<C-j>"] = { "select_next", "fallback" },
@@ -40,6 +40,17 @@ return {
                     auto_show_delay_ms = 200,
                     window = {
                         border = "solid",
+                    },
+                },
+
+                ghost_text = {
+                    enabled = true,
+                },
+
+                list = {
+                    selection = {
+                        preselect = false,
+                        auto_insert = false,
                     },
                 },
 
