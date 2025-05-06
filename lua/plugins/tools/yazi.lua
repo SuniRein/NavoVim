@@ -22,8 +22,15 @@ return {
                 desc = "Open yazi at current file",
             },
         },
+        ---@module "yazi"
+        ---@type YaziConfig | {}
         opts = {
             open_for_directories = true,
+            integrations = {
+                grep_in_directory = "snacks.picker",
+                grep_in_selected_files = "snacks.picker",
+                picker_add_copy_relative_path_action = "snacks.picker",
+            },
         },
         init = function()
             -- 👇 if you use `open_for_directories=true`, this is recommended
