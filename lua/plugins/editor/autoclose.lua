@@ -22,7 +22,7 @@ return {
             },
             ["`"] = { escape = false, close = true, pair = "``" },
 
-            ["$"] = { escape = false, close = true, pair = "$$", enabled_filetypes = { "markdown", "latex" } },
+            ["$"] = { escape = false, close = true, pair = "$$", enabled_filetypes = { "markdown", "latex", "typst" } },
         },
 
         options = {
