@@ -25,6 +25,7 @@ return {
         cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
         config = function()
             require("nvim-treesitter.configs").setup({
+                modules = {},
                 ensure_installed = Treesitter.ensured,
                 ignore_install = Treesitter.ignored,
                 sync_install = false,
