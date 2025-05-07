@@ -14,8 +14,7 @@ return {
             hybridMode = false,
         },
         typescript = {
-            tsdk = require("mason-registry").get_package("vue-language-server"):get_install_path()
-                .. "/node_modules/typescript/lib",
+            tsdk = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/typescript/lib"),
         },
     },
     before_init = function(_, config)
