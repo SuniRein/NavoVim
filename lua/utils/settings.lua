@@ -11,6 +11,7 @@ settings["lsp_enabled"] = {
     "svlangserver",
     "taplo",
     "tinymist",
+    "typos_lsp",
     "volar",
 }
 
