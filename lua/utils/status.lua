@@ -23,6 +23,10 @@ local function padding(str, len)
     return string.rep(" ", left_pad) .. str .. string.rep(" ", right_pad)
 end
 
+local function show_table(tbl)
+    return "[ " .. table.concat(tbl, ", ") .. " ]"
+end
+
 local function refresh()
     local filename = vim.fn.expand("%:t")
     local filetype = vim.bo.filetype
@@ -31,16 +35,19 @@ local function refresh()
 
     local lsp_clients = vim.lsp.get_clients({ bufnr = bufnr })
     local lsp_names = {}
-    for _, client in ipairs(lsp_clients) do
-        lsp_names[#lsp_names + 1] = client.name
+    for idx, client in ipairs(lsp_clients) do
+        lsp_names[idx] = client.name
     end
-    local lsp_name = "[ " .. table.concat(lsp_names, " ") .. " ]"
 
     local formatters = require("conform").list_formatters_for_buffer(bufnr)
-    local formatter_name = "[ " .. table.concat(formatters, " ") .. " ]"
 
     local linters = require("lint").linters_by_ft[filetype] or {}
-    local linter_name = "[ " .. table.concat(linters, " ") .. " ]"
+
+    local testers = require("neotest").state.adapter_ids()
+    local tester_names = {}
+    for idx, tester in ipairs(testers) do
+        tester_names[idx] = vim.split(tester, ":")[1]
+    end
 
     local display = {
         {
@@ -53,15 +60,19 @@ local function refresh()
         },
         {
             key = "Lsp",
-            value = lsp_name,
+            value = show_table(lsp_names),
         },
         {
             key = "Linter",
-            value = linter_name,
+            value = show_table(linters),
         },
         {
             key = "Formatter",
-            value = formatter_name,
+            value = show_table(formatters),
+        },
+        {
+            key = "Tester",
+            value = show_table(tester_names),
         },
     }
 
