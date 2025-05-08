@@ -28,20 +28,24 @@ return {
         },
         event = "VeryLazy",
         opts = function()
-            local vitest = require("neotest-vitest")({})
+            local adapters = {}
 
-            local gtest = require("neotest-gtest").setup({
-                is_test_file = is_cpp_test_file,
-            })
+            local vitest = require("neotest-vitest")({})
+            table.insert(adapters, vitest)
+
+            -- gtest conflicts with rustaceanvim
+            if vim.fn.filereadable(vim.fn.getcwd() .. "/Cargo.toml") == 0 then
+                local gtest = require("neotest-gtest").setup({
+                    is_test_file = is_cpp_test_file,
+                })
+                table.insert(adapters, gtest)
+            end
 
             local rust = require("rustaceanvim.neotest")
+            table.insert(adapters, rust)
 
             return {
-                adapters = {
-                    vitest,
-                    gtest,
-                    rust,
-                },
+                adapters = adapters,
             }
         end,
         keys = {
