@@ -25,6 +25,11 @@ return {
                             table.insert(result, { text = " " .. reg, fg = "#ff9e64" })
                         end
 
+                        local debug_enabled = require("debugmaster.debug.mode").is_active()
+                        if debug_enabled then
+                            table.insert(result, { text = " DEBUG", fg = "#39FF14" })
+                        end
+
                         return result
                     end,
                 },
