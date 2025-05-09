@@ -4,37 +4,46 @@ return {
         version = "*",
         dependencies = "nvim-tree/nvim-web-devicons",
         event = "LazyFile",
-        opts = {
-            options = {
-                separator_style = "slant",
-
-                always_show_bufferline = true,
-
-                diagnostics = "nvim_lsp",
-                diagnostics_indicator = function(count, level, diagnostics_dict, context)
-                    local icon = level:match("error") and " " or " "
-                    return " " .. icon .. count
+        opts = function()
+            local debug_enabled = false
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "DebugModeChanged",
+                callback = function(args)
+                    debug_enabled = args.data.enabled
                 end,
+            })
 
-                custom_areas = {
-                    right = function()
-                        local result = {}
+            return {
+                options = {
+                    separator_style = "slant",
 
-                        local reg = vim.fn.reg_recording()
-                        if reg ~= "" then
-                            table.insert(result, { text = " " .. reg, fg = "#ff9e64" })
-                        end
+                    always_show_bufferline = true,
 
-                        local debug_enabled = require("debugmaster.debug.mode").is_active()
-                        if debug_enabled then
-                            table.insert(result, { text = " DEBUG", fg = "#39FF14" })
-                        end
-
-                        return result
+                    diagnostics = "nvim_lsp",
+                    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                        local icon = level:match("error") and " " or " "
+                        return " " .. icon .. count
                     end,
+
+                    custom_areas = {
+                        right = function()
+                            local result = {}
+
+                            local reg = vim.fn.reg_recording()
+                            if reg ~= "" then
+                                table.insert(result, { text = " " .. reg, link = "DiagnosticInfo" })
+                            end
+
+                            if debug_enabled then
+                                table.insert(result, { text = " DEBUG", link = "DiagnosticWarn" })
+                            end
+
+                            return result
+                        end,
+                    },
                 },
-            },
-        },
+            }
+        end,
         keys = {
             { "<M-i>", "<cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Switch to Prev (cycle)" },
             { "<M-o>", "<cmd>BufferLineCycleNext<CR>", silent = true, desc = "Switch to Next (cycle)" },
