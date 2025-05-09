@@ -64,6 +64,13 @@ return {
                 desc = "Run Current File",
             },
             {
+                "<leader>td",
+                function()
+                    require("neotest").run.run({ strategy = "dap" })
+                end,
+                desc = "Debug Nearest Test",
+            },
+            {
                 "<leader>ts",
                 function()
                     require("neotest").summary.toggle()
