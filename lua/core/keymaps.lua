@@ -20,3 +20,6 @@ vim.keymap.set("n", "<C-p>", "", {
         require("utils.status").display()
     end,
 })
+
+map_cr("n", "<M-q>", "bdelete", "Close Buffer")
+map_cr("n", "<M-Q>", "bdelete!", "Force Close Buffer")

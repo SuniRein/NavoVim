@@ -75,9 +75,6 @@ return {
 
             { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 
-            -- buffer
-            { "<M-q>", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-
             -- stylua: ignore end
         },
 
