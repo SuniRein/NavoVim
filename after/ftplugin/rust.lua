@@ -7,9 +7,10 @@ local function map_rust_lsp(key, action, desc)
 end
 
 map_rust_lsp("<leader>rm", "expandMacro", "Expand Macro")
-map_rust_lsp("<leader>re", "explainError", "Explian Error")
+map_rust_lsp("<leader>re", "explainError", "Explain Error")
 map_rust_lsp("<leader>rd", "renderDiagnostic", "Render Diagnostic")
 map_rust_lsp("<leader>rD", "relatedDiagnostics", "Jump to Related Diagnostic")
+map_rust_lsp("<leader>rp", "parentModule", "Open Parent Module")
 map_rust_lsp("<leader>rc", "openCargo", "Open Cargo")
 map_rust_lsp("<leader>ro", "openDocs", "Open Docs")
 
