@@ -12,7 +12,7 @@ settings["lsp_enabled"] = {
     "taplo",
     "tinymist",
     "typos_lsp",
-    "volar",
+    "vue_ls",
 }
 
 -- filetypes to ignore when saving sessions
