@@ -13,6 +13,7 @@ settings["lsp_enabled"] = {
     "tinymist",
     "ts_ls",
     "typos_lsp",
+    "yamlls",
 }
 
 -- filetypes to ignore when saving sessions
