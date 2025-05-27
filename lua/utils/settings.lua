@@ -11,8 +11,8 @@ settings["lsp_enabled"] = {
     "svlangserver",
     "taplo",
     "tinymist",
+    "ts_ls",
     "typos_lsp",
-    "vue_ls",
 }
 
 -- filetypes to ignore when saving sessions
