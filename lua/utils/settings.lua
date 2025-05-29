@@ -5,6 +5,7 @@ settings["lsp_enabled"] = {
     "clangd",
     "html",
     "jsonls",
+    "just",
     "lua_ls",
     "neocmake",
     -- "rust_analyzer",
