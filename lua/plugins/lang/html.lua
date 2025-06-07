@@ -1,14 +1,3 @@
-local colorizer_filetypes = {
-    "html",
-    "css",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "vue",
-    "markdown",
-}
-
 return {
     {
         "windwp/nvim-ts-autotag",
