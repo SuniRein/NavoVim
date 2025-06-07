@@ -10,13 +10,6 @@ return {
         "OXY2DEV/markview.nvim",
         lazy = false, -- lazy load markview conflicts with snacks.picker
         init = function()
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = supported_filetypes,
-                callback = function()
-                    vim.opt_local.wrap = false
-                end,
-            })
-
             vim.api.nvim_create_autocmd("User", {
                 pattern = "VeryLazy",
                 callback = function()
