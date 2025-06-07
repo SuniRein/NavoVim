@@ -6,13 +6,6 @@ return {
             "nvim-treesitter/nvim-treesitter",
         },
         opts = {
-            adapter = {
-                opts = {
-                    -- proxy
-                    allow_insecure = true,
-                    proxy = "socks5://127.0.0.1:7890",
-                },
-            },
             display = {
                 action_palette = {
                     opts = {
