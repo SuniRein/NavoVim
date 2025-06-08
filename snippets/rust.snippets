@@ -1,0 +1,93 @@
+#
+## struct
+#
+
+snippet st
+    #[derive(Debug)]
+    pub struct ${1:`snippet#CamelCaseFilename()`} {
+        ${0:${VISUAL}}
+    }
+
+    impl ${1:`snippet#CamelCaseFilename()`} {
+        pub fn new() -> Self {
+            todo!()
+        }
+    }
+
+snippet new
+    pub fn new() -> ${1:Self} {
+        ${0:todo!()}
+    }
+
+#
+## impl
+#
+
+snippet impl
+    impl ${1:`snippet#CamelCaseFilename()`} {
+        ${0:${VISUAL}}
+    }
+
+snippet impl-trait
+    impl ${1:Trait} for ${2:`snippet#CamelCaseFilename()`} {
+        ${0:${VISUAL}}
+    }
+
+snippet drop
+    impl Drop for ${1:`snippet#CamelCaseFilename()`} {
+        fn drop(&mut self) {
+            ${0:todo!()}
+        }
+    }
+
+#
+## test
+#
+
+snippet mod-tests
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        use googletest::prelude::*;
+
+        ${0}
+    }
+
+snippet test
+    #[test]
+    fn ${1:it_works}() {
+        ${0:${VISUAL}}
+    }
+
+snippet gtest
+    #[gtest]
+    fn ${1:it_works}() {
+        ${0:${VISUAL}}
+    }
+
+snippet newtype
+    #[derive(${1:Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash})]
+    pub struct ${2:NewType}(pub ${3:InnerType});${0}
+
+#
+## attribute
+#
+
+snippet allow
+    #[allow(${1:dead_code})]${0}
+
+#
+## statement
+#
+
+snippet if-let
+    if let ${1:Some(pat)} = ${2} {
+        ${0:todo!()}
+    }
+
+snippet while-let
+    while let ${1:Some(pat)} = ${2} {
+        ${0:todo!()}
+    }
+
