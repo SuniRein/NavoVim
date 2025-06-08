@@ -7,7 +7,10 @@ return {
         opts = function()
             vim.cmd(("source %s"):format(vim.fn.stdpath("config") .. "/snippets/snippet.vim"))
             require("luasnip.loaders.from_snipmate").lazy_load()
+
+            vim.keymap.set("n", "<leader>ss", require("luasnip.loaders").edit_snippet_files, { desc = "Edit Snippets" })
         end,
+        ft = "snippets", -- highlight snippets files
     },
 
     {
@@ -26,8 +29,8 @@ return {
                 ["<ESC>"] = { "hide", "fallback" },
                 ["<C-j>"] = { "select_next", "fallback" },
                 ["<C-k>"] = { "select_prev", "fallback" },
-                ["<tab>"] = { "snippet_forward", "fallback" },
-                ["<S-tab>"] = { "snippet_backward", "fallback" },
+                ["<C-h>"] = { "snippet_backward", "fallback" },
+                ["<C-l>"] = { "snippet_forward", "fallback" },
             },
 
             appearance = {
