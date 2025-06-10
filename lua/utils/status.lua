@@ -77,8 +77,8 @@ local function refresh()
     }
 
     local width = win:size().width - 2
-    local key_width = width / 2
-    local value_width = width / 2
+    local key_width = width / 3
+    local value_width = width / 3 * 2
 
     local content = {}
     for _, v in ipairs(display) do
