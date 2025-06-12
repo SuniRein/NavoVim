@@ -44,3 +44,6 @@ opt.swapfile = false
 
 -- 设置 signcolumn 偏移，避免文本跳动
 opt.signcolumn = "yes"
+
+-- session
+opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
