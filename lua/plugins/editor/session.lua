@@ -30,7 +30,19 @@ return {
             }
         end,
         keys = {
-            { "<leader>cs", "<cmd>SessionLoad<CR>", desc = "Load Current Session" },
+            {
+                "<leader>cs",
+                function()
+                    local p = require("persisted")
+                    local session = p.current()
+                    if session and vim.fn.filereadable(session) ~= 0 then
+                        p.load()
+                    else
+                        vim.notify("No session found", vim.log.levels.WARN)
+                    end
+                end,
+                desc = "Load Current Session",
+            },
         },
     },
 }
