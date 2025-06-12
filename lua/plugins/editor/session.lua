@@ -1,9 +1,6 @@
 return {
     {
         "olimorris/persisted.nvim",
-        dependencies = {
-            { "nvim-telescope/telescope.nvim", optional = true }, -- telescope extension
-        },
         event = "BufReadPre",
         cmd = {
             "SessionToggle",

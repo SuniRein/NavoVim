@@ -5,14 +5,7 @@ return {
         dependencies = {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify", -- notification view
-            { "nvim-telescope/telescope.nvim", optional = true }, -- telescope extension
         },
-        init = function()
-            local ok, telescope = pcall(require, "telescope")
-            if ok then
-                telescope.load_extension("noice")
-            end
-        end,
         opts = {
             lsp = {
                 -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
