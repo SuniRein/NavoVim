@@ -43,9 +43,6 @@ return {
             "nvim-tree/nvim-web-devicons",
         },
         event = "LspAttach",
-        init = function()
-            vim.diagnostic.config({ virtual_text = false })
-        end,
         opts = {
             diagnostic = { diagnostic_only_current = false }, -- conflict with tiny-inline-diagnostic.nvim
         },
