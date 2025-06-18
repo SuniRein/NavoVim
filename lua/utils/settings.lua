@@ -8,6 +8,7 @@ settings["lsp_enabled"] = {
     "just",
     "lua_ls",
     "neocmake",
+    "nushell",
     -- "rust_analyzer",
     "svlangserver",
     "taplo",
