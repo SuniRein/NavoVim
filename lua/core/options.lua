@@ -47,3 +47,6 @@ opt.signcolumn = "yes"
 
 -- session
 opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
+
+-- shell
+opt.shell = "nu"
