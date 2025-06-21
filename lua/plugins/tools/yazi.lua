@@ -31,6 +31,9 @@ return {
                 grep_in_selected_files = "snacks.picker",
                 picker_add_copy_relative_path_action = "snacks.picker",
             },
+            keymaps = {
+                cycle_open_buffers = false, -- conflict with yazi's own keymap
+            },
         },
         init = function()
             -- 👇 if you use `open_for_directories=true`, this is recommended
