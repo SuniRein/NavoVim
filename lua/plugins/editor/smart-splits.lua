@@ -1,19 +1,22 @@
 return {
     {
         "mrjones2014/smart-splits.nvim",
-        lazy = true,
-        event = "LazyFile",
-        opts = {},
-        keys = {
-            { "<M-h>", "<cmd>SmartResizeLeft<CR>", desc = "window: Resize left" },
-            { "<M-j>", "<cmd>SmartResizeDown<CR>", desc = "window: Resize down" },
-            { "<M-k>", "<cmd>SmartResizeUp<CR>", desc = "window: Resize up" },
-            { "<M-l>", "<cmd>SmartResizeRight<CR>", desc = "window: Resize right" },
+        build = "./kitty/install-kittens.bash",
+        config = function()
+            require("smart-splits").setup({})
 
-            { "<C-h>", "<cmd>SmartCursorMoveLeft<CR>", desc = "window: Move left" },
-            { "<C-j>", "<cmd>SmartCursorMoveDown<CR>", desc = "window: Move down" },
-            { "<C-k>", "<cmd>SmartCursorMoveUp<CR>", desc = "window: Move up" },
-            { "<C-l>", "<cmd>SmartCursorMoveRight<CR>", desc = "window: Move right" },
-        },
+            local ss = require("smart-splits")
+            local map = vim.keymap.set
+
+            map("n", "<M-h>", ss.resize_left, { desc = "Window resize left" })
+            map("n", "<M-j>", ss.resize_down, { desc = "Window resize down" })
+            map("n", "<M-k>", ss.resize_up, { desc = "Window resize up" })
+            map("n", "<M-l>", ss.resize_right, { desc = "Window resize right" })
+
+            map("n", "<C-h>", ss.move_cursor_left, { desc = "Window move left" })
+            map("n", "<C-j>", ss.move_cursor_down, { desc = "Window move down" })
+            map("n", "<C-k>", ss.move_cursor_up, { desc = "Window move up" })
+            map("n", "<C-l>", ss.move_cursor_right, { desc = "Window move right" })
+        end,
     },
 }
