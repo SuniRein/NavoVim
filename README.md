@@ -25,6 +25,7 @@
 
 - `rust_analyzer` 由 [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) 配置，不通过 [lspconfig][lspconfig]
 - `vuels` 由 `ts_ls` 集成，无需手动配置（需通过 [Mason][mason] 安装）
+- `tinymist` 被 `chomosuke/typst-preview.nvim` 依赖
 - `nushell` 由 nushell 本体自带，无需额外安装
 - `jsonls` 与 `yamlls` 均通过 [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim) 继承 Schema 支持
 
@@ -69,4 +70,40 @@
 | --- | --- | --: |
 | [codelldb](https://github.com/vadimcn/codelldb) | `c` `cpp` `rust` | ✅ |
 
+## TreeSitter
 
+| 插件 | TreeSitter |
+| --- | --- |
+| `OXY2DEV/markview.nvim` | `markdown` `markdown-inline` `typst` `latex` `yaml` `html` |
+| `folke/noice.nvim` | `vim` `regex` `lua` `bash` `markdown` `markdown-inline` |
+
+## 外部工具
+
+- [fzf](https://github.com/junegunn/fzf)：被多个插件依赖
+
+- [node](https://nodejs.org)：被多个插件依赖
+
+- [ast-grep](https://github.com/ast-grep/ast-grep)：作为 `magicduck/grug-far.nvim` 的文本替换器
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - 作为 `magicduck/grug-far.nvim` 的文本替换器
+  - 被 `folke/snacks.nvim` 的 `picker` 模块依赖
+
+- [fd](https://github.com/sharkdp/fd)：被 `folke/snacks.nvim` 的 `picker` 模块依赖
+
+- [xsel](https://github.com/kfish/xsel)：提供系统剪切板支持
+
+- [luarocks](https://github.com/luarocks/luarocks)：`folke/lazy.nvim` 安装部分插件时需要
+
+- [Nushell](https://nushell.sh)：作为默认终端
+
+- [Kitty](https://sw.kovidgoyal.net/kitty/)
+  - `mrjones2014/smart-splits.nvim` 提供与 Kitty 窗口的无缝衔接
+
+- [LazyGit](https://github.com/jesseduffield/lazygit)：依靠 `folke/snacks.nvim` 集成以管理 Git
+
+  - 依赖 `mikesmithgh/kitty-scrollback.nvim` 作为 Kitty 的 ScrollBack
+
+- [XMake](https://xmake.io)：依靠 `Mythos-404/xmake.nvim` 在 C++ 项目中集成
+
+- [Yazi](https://yazi-rs.github.io/)：依靠 `mikavilpas/yazi.nvim` 作为文件管理器
