@@ -79,8 +79,6 @@
 
 ## 外部工具
 
-- [fzf](https://github.com/junegunn/fzf)：被多个插件依赖
-
 - [node](https://nodejs.org)：被多个插件依赖
 
 - [ast-grep](https://github.com/ast-grep/ast-grep)：作为 `magicduck/grug-far.nvim` 的文本替换器
