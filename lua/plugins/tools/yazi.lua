@@ -32,7 +32,8 @@ return {
                 picker_add_copy_relative_path_action = "snacks.picker",
             },
             keymaps = {
-                cycle_open_buffers = false, -- conflict with yazi's own keymap
+                cycle_open_buffers = "<c-o>",
+                open_and_pick_window = false,
             },
         },
         init = function()
