@@ -10,5 +10,6 @@ vim.filetype.add({
         snippets = "snippets",
         vh = "verilog",
         svh = "systemverilog",
+        gitconfig = "gitconfig",
     },
 })
