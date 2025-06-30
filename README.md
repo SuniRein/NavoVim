@@ -53,6 +53,7 @@
 | 名称 | 语言 | Mason |
 | --- | --- | --: |
 | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) | `c` `cpp` | ✅ |
+| [ruff](https://docs.astral.sh/ruff/) | `python` | ✅ |
 | [stylua](https://github.com/JohnnyMorganz/StyLua) | `lua` | ✅ |
 | [eslint_d](https://github.com/mantoni/eslint_d.js/) | `JS` `TS` `vue` | ✅ |
 | [prettierd](https://github.com/fsouza/prettierd) | `html` `css` `JS` `TS` `vue` `yaml` | ✅ |
