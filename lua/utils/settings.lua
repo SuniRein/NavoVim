@@ -1,6 +1,7 @@
 local settings = {}
 
 settings["lsp_enabled"] = {
+    "basedpyright",
     "bashls",
     "clangd",
     "html",

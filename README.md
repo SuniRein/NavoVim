@@ -9,6 +9,7 @@
 | [html](https://github.com/microsoft/vscode-html-languageservice) | `html` | ✅ |
 | [ts_ls](https://github.com/typescript-language-server/typescript-language-server) | `JS` `TS` `vue` | ✅ |
 | [vuels](https://github.com/vuejs/language-tools) | `vue` | ✅ |
+| [basedpyright](https://docs.basedpyright.com/) | `python` | ✅ |
 | [lua_ls](https://github.com/LuaLS/lua-language-server) | `lua` | ✅ |
 | [svlangserver](https://github.com/imc-trading/svlangserver) | `verilog` | ✅ |
 | [jsonls](https://github.com/microsoft/vscode-json-languageservice) | `json` | ✅ |
