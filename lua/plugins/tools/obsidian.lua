@@ -32,6 +32,19 @@ return {
                 )
             end
 
+            vim.treesitter.query.set(
+                "markdown_inline",
+                "injections",
+                [[
+((html_tag) @injection.content
+  (#set! injection.language "html")
+  (#set! injection.combined))
+
+((latex_block) @injection.content
+  (#set! injection.language "typst")
+  (#set! injection.include-children))]]
+            )
+
             return {
                 workspaces = {
                     {
