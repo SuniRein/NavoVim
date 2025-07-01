@@ -2,13 +2,15 @@ return {
     {
         "obsidian-nvim/obsidian.nvim",
         version = "*",
+        cond = function()
+            return vim.fn.getcwd() == vim.fn.expand("~/Obsidian")
+        end,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "saghen/blink.cmp",
             "folke/snacks.nvim",
             "OXY2DEV/markview.nvim",
         },
-        ft = "markdown",
         ---@module "obsidian"
         opts = function()
             local keymaps = {
@@ -21,15 +23,8 @@ return {
                 op = { "paste_img", "Paste image from clipboard" },
                 ow = { "workspace", "Switch workspace" },
             }
-
-            local buffer = vim.api.nvim_get_current_buf()
             for key, value in pairs(keymaps) do
-                vim.keymap.set(
-                    "n",
-                    "<leader>" .. key,
-                    "<cmd>Obsidian " .. value[1] .. "<CR>",
-                    { desc = value[2], buffer = buffer }
-                )
+                vim.keymap.set("n", "<leader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
             end
 
             vim.treesitter.query.set(
