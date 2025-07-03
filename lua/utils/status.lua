@@ -39,10 +39,13 @@ local function refresh()
         lsp_names[idx] = client.name
     end
 
-    local formatters = require("conform").list_formatters(bufnr)
+    local formatters, lsp_format = require("conform").list_formatters_to_run(bufnr)
     local formatter_names = {}
     for idx, formatter in ipairs(formatters) do
         formatter_names[idx] = formatter.name
+    end
+    if lsp_format then
+        formatter_names[#formatter_names + 1] = "Lsp"
     end
 
     local linters = require("lint").linters_by_ft[filetype] or {}
