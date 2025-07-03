@@ -51,6 +51,8 @@ return {
                 end,
             }):map("<M-F>")
 
+            local markers = require("utils.root_markers")
+
             return {
                 default_format_opts = {
                     lsp_format = "fallback",
@@ -88,6 +90,14 @@ return {
                 formatters = {
                     fixjson = { prepend_args = { "--indent", "4" } },
                     stylua = { prepend_args = { "--indent-type", "Spaces" } },
+                    eslint_d = {
+                        cwd = require("conform.util").root_file(markers.eslint),
+                        require_cwd = true,
+                    },
+                    prettierd = {
+                        cwd = require("conform.util").root_file(markers.prettier),
+                        require_cwd = true,
+                    },
                 },
             }
         end,

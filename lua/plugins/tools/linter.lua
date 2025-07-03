@@ -9,20 +9,7 @@ return {
         }
 
         local js_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" }
-        local eslint_markers = {
-            ".eslintrc",
-            ".eslintrc.js",
-            ".eslintrc.cjs",
-            ".eslintrc.yaml",
-            ".eslintrc.yml",
-            ".eslintrc.json",
-            "eslint.config.js",
-            "eslint.config.mjs",
-            "eslint.config.cjs",
-            "eslint.config.ts",
-            "eslint.config.mts",
-            "eslint.config.cts",
-        }
+        local eslint_markers = require("utils.root_markers").eslint
 
         local cwd = vim.fn.getcwd()
         if require("lspconfig.util").root_pattern(eslint_markers)(cwd) then
