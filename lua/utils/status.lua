@@ -39,7 +39,11 @@ local function refresh()
         lsp_names[idx] = client.name
     end
 
-    local formatters = require("conform").list_formatters_for_buffer(bufnr)
+    local formatters = require("conform").list_formatters(bufnr)
+    local formatter_names = {}
+    for idx, formatter in ipairs(formatters) do
+        formatter_names[idx] = formatter.name
+    end
 
     local linters = require("lint").linters_by_ft[filetype] or {}
 
@@ -68,7 +72,7 @@ local function refresh()
         },
         {
             key = "Formatter",
-            value = show_table(formatters),
+            value = show_table(formatter_names),
         },
         {
             key = "Tester",
