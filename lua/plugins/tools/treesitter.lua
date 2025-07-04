@@ -20,9 +20,7 @@ return {
             { "nvim-treesitter/nvim-treesitter-context" },
             { "nvim-treesitter/nvim-treesitter-textobjects" },
         },
-        lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
-        event = "VeryLazy",
-        cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+        lazy = false,
         config = function()
             require("nvim-treesitter.configs").setup({
                 modules = {},

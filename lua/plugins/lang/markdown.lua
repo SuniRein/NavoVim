@@ -21,6 +21,7 @@ return {
     {
         "OXY2DEV/markview.nvim",
         lazy = false, -- lazy load markview conflicts with snacks.picker
+        priority = 49, -- assuming nvim-treesitter has priority = 50, the default
         init = function()
             vim.api.nvim_create_autocmd("User", {
                 pattern = "VeryLazy",
