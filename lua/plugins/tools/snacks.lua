@@ -22,6 +22,9 @@ return {
             dim = {},
             indent = {
                 chunk = { enabled = true },
+                filter = function()
+                    return vim.bo.filetype ~= "markdown"
+                end,
             },
             input = {},
             notifier = {},
