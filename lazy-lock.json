@@ -66,5 +66,6 @@
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "xmake.nvim": { "branch": "main", "commit": "ae9bb3ec97cd27cd95f616687096e529363aa80b" },
+  "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" },
   "yazi.nvim": { "branch": "main", "commit": "fd8526c77a7316ccaf9df8e898ccfa750225f70c" }
 }
