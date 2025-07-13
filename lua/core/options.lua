@@ -50,3 +50,6 @@ opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
 
 -- shell
 opt.shell = "nu"
+
+-- fold
+opt.foldtext = ""
