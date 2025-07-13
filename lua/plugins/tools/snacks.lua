@@ -22,8 +22,11 @@ return {
             dim = {},
             indent = {
                 chunk = { enabled = true },
-                filter = function()
-                    return vim.bo.filetype ~= "markdown"
+                filter = function(buf)
+                    return vim.g.snacks_indent ~= false
+                        and vim.b[buf].snacks_indent ~= false
+                        and vim.bo[buf].buftype == ""
+                        and vim.bo.filetype ~= "markdown"
                 end,
             },
             input = {},
