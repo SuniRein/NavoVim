@@ -14,8 +14,9 @@ settings["lsp_enabled"] = {
     "svlangserver",
     "taplo",
     "tinymist",
-    "ts_ls",
     "typos_lsp",
+    "vtsls",
+    "vue_ls",
     "yamlls",
 }
 

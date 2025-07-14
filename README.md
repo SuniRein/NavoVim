@@ -7,8 +7,8 @@
 | [clangd](https://github.com/clangd/clangd) | `c` `cpp` | ✅ |
 | [rust_analyzer](https://github.com/rust-lang/rust-analyzer) | `rust` | |
 | [html](https://github.com/microsoft/vscode-html-languageservice) | `html` | ✅ |
-| [ts_ls](https://github.com/typescript-language-server/typescript-language-server) | `JS` `TS` `vue` | ✅ |
 | [vuels](https://github.com/vuejs/language-tools) | `vue` | ✅ |
+| [vtsls](https://github.com/yioneko/vtsls) | `vue` `ts` `js` | ✅ |
 | [basedpyright](https://docs.basedpyright.com/) | `python` | ✅ |
 | [lua_ls](https://github.com/LuaLS/lua-language-server) | `lua` | ✅ |
 | [svlangserver](https://github.com/imc-trading/svlangserver) | `verilog` | ✅ |
@@ -25,7 +25,6 @@
 ### 备注
 
 - `rust_analyzer` 由 [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) 配置，不通过 [lspconfig][lspconfig]
-- `vuels` 由 `ts_ls` 集成，无需手动配置（需通过 [Mason][mason] 安装）
 - `tinymist` 被 `chomosuke/typst-preview.nvim` 依赖
 - `nushell` 由 nushell 本体自带，无需额外安装
 - `jsonls` 与 `yamlls` 均通过 [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim) 继承 Schema 支持
