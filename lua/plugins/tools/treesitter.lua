@@ -16,7 +16,6 @@ return {
         build = ":TSUpdate",
         dependencies = {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
-            { "andymass/vim-matchup" }, -- for matchup
             { "nvim-treesitter/nvim-treesitter-context" },
             { "nvim-treesitter/nvim-treesitter-textobjects" },
         },
@@ -55,9 +54,6 @@ return {
 
                 -- indentation based on treesitter for the = operator
                 indent = { enable = true },
-
-                -- with vim-matchup
-                matchup = { enable = true },
 
                 -- with nvim-treesitter-textobjects
                 textobjects = {
@@ -104,7 +100,7 @@ return {
 
     {
         "andymass/vim-matchup",
-        lazy = true,
+        event = "LazyFile",
         init = function()
             vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
         end,
