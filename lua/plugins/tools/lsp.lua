@@ -47,8 +47,6 @@ return {
             diagnostic = { diagnostic_only_current = false }, -- conflict with tiny-inline-diagnostic.nvim
         },
         keys = {
-            { "K", "<cmd>Lspsaga hover_doc<CR>", desc = "lsp: Hover doc" },
-
             { "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "lsp: Goto Definition" },
             { "gD", "<cmd>Lspsaga peek_definition<CR>", desc = "lsp: Peek Definition" },
 
