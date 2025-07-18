@@ -9,6 +9,7 @@
 | [html](https://github.com/microsoft/vscode-html-languageservice) | `html` | ✅ |
 | [vuels](https://github.com/vuejs/language-tools) | `vue` | ✅ |
 | [vtsls](https://github.com/yioneko/vtsls) | `vue` `ts` `js` | ✅ |
+| [eslint-lsp](https://github.com/Microsoft/vscode-eslint) | ... | ✅ |
 | [basedpyright](https://docs.basedpyright.com/) | `python` | ✅ |
 | [lua_ls](https://github.com/LuaLS/lua-language-server) | `lua` | ✅ |
 | [svlangserver](https://github.com/imc-trading/svlangserver) | `verilog` | ✅ |
@@ -36,7 +37,6 @@
 
 | 名称 | 语言 | Mason |
 | --- | --- | --: |
-| [eslint_d](https://github.com/mantoni/eslint_d.js/) | `JS` `TS` `vue` | ✅ |
 | [verilator](https://github.com/verilator/verilator) | `verilog` | |
 | [shellcheck](https://www.shellcheck.net/) | `bash` `zsh` | ✅ |
 | [`actionlint`](https://github.com/rhysd/actionlint) | `ghaction` | ✅ |
@@ -54,7 +54,6 @@
 | [clang-format](https://clang.llvm.org/docs/ClangFormat.html) | `c` `cpp` | ✅ |
 | [ruff](https://docs.astral.sh/ruff/) | `python` | ✅ |
 | [stylua](https://github.com/JohnnyMorganz/StyLua) | `lua` | ✅ |
-| [eslint_d](https://github.com/mantoni/eslint_d.js/) | `JS` `TS` `vue` | ✅ |
 | [prettierd](https://github.com/fsouza/prettierd) | `html` `css` `JS` `TS` `vue` `yaml` | ✅ |
 | [verible](https://chipsalliance.github.io/verible/) | `verilog` | ✅ |
 | [fixjson](https://github.com/rhysd/fixjson) | `json` | ✅ |
@@ -64,6 +63,7 @@
 
 - `verible` 由 `svlangserver` 自动集成
 - `typstyle` 由 `tinymist` 自动集成
+- 部分 Formatter 由 LSP 提供，定义在 `lsp_formatters`
 
 ## DAP
 

@@ -4,6 +4,7 @@ settings["lsp_enabled"] = {
     "basedpyright",
     "bashls",
     "clangd",
+    "eslint",
     "html",
     "jsonls",
     "just",
@@ -18,6 +19,13 @@ settings["lsp_enabled"] = {
     "vtsls",
     "vue_ls",
     "yamlls",
+}
+
+settings["lsp_formatters"] = {
+    "eslint",
+    "jsonls",
+    "taplo",
+    "tinymist",
 }
 
 -- filetypes to ignore when saving sessions

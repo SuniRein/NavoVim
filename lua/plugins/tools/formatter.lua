@@ -1,3 +1,8 @@
+local function format_filter(client)
+    local lsp_formatters = require("utils.settings").lsp_formatters
+    return vim.tbl_contains(lsp_formatters, client.name)
+end
+
 return {
     {
         "stevearc/conform.nvim",
@@ -24,7 +29,12 @@ return {
                         ["end"] = { args.line2, end_line:len() },
                     }
                 end
-                require("conform").format({ async = true, lsp_format = "fallback", range = range })
+                require("conform").format({
+                    async = true,
+                    lsp_format = "fallback",
+                    range = range,
+                    filter = format_filter,
+                })
             end, { range = true })
         end,
 
@@ -60,7 +70,7 @@ return {
 
                 format_on_save = function(bufnr)
                     if vim.g.autoformat ~= false and vim.b.autoformat ~= false then
-                        return { timeout_ms = 500 }
+                        return { timeout_ms = 500, filter = format_filter }
                     end
                     return nil
                 end,
@@ -76,11 +86,11 @@ return {
                     html = { "prettierd" },
                     css = { "prettierd" },
 
-                    javascript = { "eslint_d", "prettierd" },
-                    typescript = { "eslint_d", "prettierd" },
-                    javascriptreact = { "eslint_d", "prettierd" },
-                    typescriptreact = { "eslint_d", "prettierd" },
-                    vue = { "eslint_d", "prettierd" },
+                    javascript = { "prettierd", lsp_format = "last" },
+                    typescript = { "prettierd", lsp_format = "last" },
+                    javascriptreact = { "prettierd", lsp_format = "last" },
+                    typescriptreact = { "prettierd", lsp_format = "last" },
+                    vue = { "prettierd", lsp_format = "last" },
 
                     yaml = { "prettierd" },
 
@@ -90,10 +100,6 @@ return {
                 formatters = {
                     fixjson = { prepend_args = { "--indent", "4" } },
                     stylua = { prepend_args = { "--indent-type", "Spaces" } },
-                    eslint_d = {
-                        cwd = require("conform.util").root_file(markers.eslint),
-                        require_cwd = true,
-                    },
                     prettierd = {
                         cwd = require("conform.util").root_file(markers.prettier),
                         require_cwd = true,
