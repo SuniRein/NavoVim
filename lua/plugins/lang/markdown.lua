@@ -40,7 +40,7 @@ return {
                                 mv.actions.disable()
                             end
                         end,
-                    }):map("<leader>um")
+                    }):map("<localleader>m")
 
                     Snacks.toggle({
                         name = "Markview Split",
@@ -54,7 +54,18 @@ return {
                                 mv.actions.splitClose()
                             end
                         end,
-                    }):map("<leader>uM")
+                    }):map("<localleader>s")
+
+                    Snacks.toggle({
+                        name = "Markview Table Border",
+                        get = function()
+                            return vim.b.noborder ~= true
+                        end,
+                        set = function(state)
+                            vim.b.noborder = not state
+                            require("markview").commands.Render()
+                        end,
+                    }):map("<localleader>b")
                 end,
             })
         end,
@@ -72,6 +83,16 @@ return {
                 table = {
                     use_virt_lines = true,
                 },
+                tables = function(buffer)
+                    local default = require("markview.spec").default.markdown.tables
+                    local no_border = require("markview.presets").tables.none
+
+                    if buffer and vim.b[buffer].noborder == true then
+                        return vim.tbl_deep_extend("force", default, no_border)
+                    else
+                        return default
+                    end
+                end,
                 list_items = {
                     shift_width = reduce_indent,
                     marker_minus = disable_first_line_indent,
