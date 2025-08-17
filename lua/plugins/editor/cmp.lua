@@ -10,6 +10,12 @@ return {
             require("luasnip.loaders.from_lua").lazy_load()
 
             vim.keymap.set("n", "<leader>ss", require("luasnip.loaders").edit_snippet_files, { desc = "Edit Snippets" })
+
+            return {
+                enable_autosnippets = true,
+                update_events = "TextChanged,TextChangedI",
+                store_selection_keys = "<Tab>",
+            }
         end,
         ft = "snippets", -- highlight snippets files
     },
