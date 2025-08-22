@@ -79,6 +79,8 @@ return {
                     c = { "clang-format" },
                     cpp = { "clang-format" },
 
+                    rust = { "rustfmt" },
+
                     python = { "ruff_format", "ruff_organize_imports" },
 
                     lua = { "stylua" },
