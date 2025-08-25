@@ -60,9 +60,6 @@ return {
 
             { "ga", "<cmd>Lspsaga code_action<CR>", desc = "lsp: Code action" },
 
-            { "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", desc = "lsp: Jump to previous diagnostic" },
-            { "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", desc = "lsp: Jump to next diagnostic" },
-
             { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "lsp: Show line diagnostics" },
             { "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "lsp: Show buffer diagnostics" },
             { "gw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "lsp: Show workspace diagnostics" },
