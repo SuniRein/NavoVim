@@ -17,9 +17,6 @@ opt.wrap = true
 opt.cursorline = true
 opt.cursorcolumn = true
 
--- 系统剪切板
-opt.clipboard = "unnamedplus"
-
 -- 默认新窗口右和下
 opt.splitright = true
 opt.splitbelow = true
