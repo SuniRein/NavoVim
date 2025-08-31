@@ -47,22 +47,22 @@ return {
             diagnostic = { diagnostic_only_current = false }, -- conflict with tiny-inline-diagnostic.nvim
         },
         keys = {
-            { "gd", "<cmd>Lspsaga goto_definition<CR>", desc = "lsp: Goto Definition" },
-            { "gD", "<cmd>Lspsaga peek_definition<CR>", desc = "lsp: Peek Definition" },
+            { "<leader>id", "<cmd>Lspsaga goto_definition<CR>", desc = "Goto Definition" },
+            { "<leader>iD", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
 
-            { "gt", "<cmd>Lspsaga goto_type_definition<CR>", desc = "lsp: Goto Type Definition" },
-            { "gT", "<cmd>Lspsaga peek_type_definition<CR>", desc = "lsp: Peek Type Definition" },
+            { "<leader>it", "<cmd>Lspsaga goto_type_definition<CR>", desc = "Goto Type Definition" },
+            { "<leader>iT", "<cmd>Lspsaga peek_type_definition<CR>", desc = "Peek Type Definition" },
 
-            { "gf", "<cmd>Lspsaga finder<CR>", desc = "lsp: Finder" },
+            { "<leader>if", "<cmd>Lspsaga finder<CR>", desc = "Finder" },
 
-            { "gr", "<cmd>Lspsaga rename<CR>", desc = "lsp: Rename" },
-            { "gR", "<cmd>Lspsaga rename ++project<CR>", desc = "lsp: Rename (project)" },
+            { "<leader>ir", "<cmd>Lspsaga rename<CR>", desc = "Rename" },
+            { "<leader>iR", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename (project)" },
 
-            { "ga", "<cmd>Lspsaga code_action<CR>", desc = "lsp: Code action" },
+            { "<leader>ia", "<cmd>Lspsaga code_action<CR>", desc = "Code action" },
 
-            { "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "lsp: Show line diagnostics" },
-            { "gb", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "lsp: Show buffer diagnostics" },
-            { "gw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "lsp: Show workspace diagnostics" },
+            { "<leader>il", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show line diagnostics" },
+            { "<leader>ib", "<cmd>Lspsaga show_buf_diagnostics<CR>", desc = "Show buffer diagnostics" },
+            { "<leader>iw", "<cmd>Lspsaga show_workspace_diagnostics<CR>", desc = "Show workspace diagnostics" },
         },
     },
 }

@@ -16,6 +16,7 @@ return {
                 { "<leader>t", group = "Test" },
                 { "<leader>u", group = "UI" },
                 { "<leader>l", group = "Trouble" },
+                { "<leader>i", group = "Lsp" },
             },
         },
         keys = {
