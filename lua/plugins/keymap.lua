@@ -17,6 +17,9 @@ return {
                 { "<leader>u", group = "UI" },
                 { "<leader>l", group = "Trouble" },
                 { "<leader>i", group = "Lsp" },
+
+                { "gs", group = "Surround" },
+                { "ga", group = "Change text case" },
             },
         },
         keys = {
