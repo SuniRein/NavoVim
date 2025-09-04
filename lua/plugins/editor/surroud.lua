@@ -10,7 +10,7 @@ local mappings = {
 
 return {
     {
-        "echasnovski/mini.surround",
+        "nvim-mini/mini.surround",
         version = false,
         keys = function(_, keys)
             local map = {
