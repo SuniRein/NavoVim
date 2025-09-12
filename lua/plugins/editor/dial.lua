@@ -1,3 +1,15 @@
+local function js_ts_config()
+    local augend = require("dial.augend")
+    return {
+        augend.constant.new({
+            elements = { "let", "const" },
+        }),
+        augend.constant.new({
+            elements = { "null", "undefined" },
+        }),
+    }
+end
+
 return {
     {
         "monaqa/dial.nvim",
@@ -9,6 +21,8 @@ return {
                         elements = { "let mut", "let" },
                     }),
                 },
+                javascript = js_ts_config(),
+                typescript = js_ts_config(),
             })
 
             local function manipulate(direction, mode)
