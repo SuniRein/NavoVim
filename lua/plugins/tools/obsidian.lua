@@ -22,9 +22,10 @@ return {
                 ol = { "links", "Search all links" },
                 op = { "paste_img", "Paste image from clipboard" },
                 ow = { "workspace", "Switch workspace" },
+                ox = { "open", "Open in Obsidian App" },
             }
             for key, value in pairs(keymaps) do
-                vim.keymap.set("n", "<leader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
+                vim.keymap.set("n", "<localleader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
             end
 
             vim.treesitter.query.set(
