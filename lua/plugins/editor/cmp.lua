@@ -69,7 +69,7 @@ return {
                         columns = {
                             { "label", "label_description", gap = 1 },
                             { "kind_icon", "kind" },
-                            -- { "source_name" },
+                            { "source_name" },
                         },
                     },
                     scrolloff = 1,
