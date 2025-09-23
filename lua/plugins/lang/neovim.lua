@@ -13,17 +13,12 @@ return {
     {
         "saghen/blink.cmp",
         optional = true,
-        opts = {
-            sources = {
-                default = { "lazydev" },
-                providers = {
-                    lazydev = {
-                        name = "LazyDev",
-                        module = "lazydev.integrations.blink",
-                        score_offset = 100, -- show at a higher priority than lsp
-                    },
-                },
-            },
-        },
+        opts = function(_, opts)
+            require("utils.blink").add_source(opts, "lazydev", {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                score_offset = 100, -- show at a higher priority than lsp
+            })
+        end,
     },
 }

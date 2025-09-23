@@ -14,18 +14,13 @@ local M = {
         "saghen/blink.cmp",
         optional = true,
         dependencies = { "garyhurtz/blink_cmp_kitty" },
-        opts = {
-            sources = {
-                default = { "blink_cmp_kitty" },
-                providers = {
-                    blink_cmp_kitty = {
-                        name = "kitty",
-                        module = "blink_cmp_kitty",
-                        score_offset = -100,
-                    },
-                },
-            },
-        },
+        opts = function(_, opts)
+            require("utils.blink").add_source(opts, "blink_cmp_kitty", {
+                name = "kitty",
+                module = "blink_cmp_kitty",
+                score_offset = -100,
+            })
+        end,
     },
 }
 

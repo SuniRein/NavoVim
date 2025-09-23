@@ -26,76 +26,77 @@ return {
         dependencies = { "L3MON4D3/LuaSnip" },
         event = { "InsertEnter", "CmdlineEnter" },
 
+        opts_extend = { "sources.default" },
+
         ---@module 'blink.cmp'
-        ---@type blink.cmp.Config
-        opts = {
-            keymap = {
-                preset = "none",
-                ["<CR>"] = { "accept", "fallback" },
-                ["<C-space>"] = { "show", "fallback" },
-                ["<ESC>"] = { "hide", "fallback" },
-                ["<C-j>"] = { "select_next", "fallback" },
-                ["<C-k>"] = { "select_prev", "fallback" },
-                ["<C-h>"] = { "snippet_backward", "fallback" },
-                ["<C-l>"] = { "snippet_forward", "fallback" },
-            },
+        ---@param opts blink.cmp.Config
+        opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            opts.sources.default = opts.sources.default or {}
+            vim.list_extend(opts.sources.default, { "lsp", "path", "snippets", "buffer" })
+            opts.sources.providers.lsp = {
+                fallbacks = {}, -- enable buffer when LSP is available
+            }
 
-            appearance = {
-                nerd_font_variant = "normal", -- 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-            },
-
-            completion = {
-                documentation = {
-                    auto_show = true,
-                    auto_show_delay_ms = 200,
-                    window = {
-                        border = "solid",
-                    },
+            return vim.tbl_extend("force", opts, {
+                snippets = { preset = "luasnip" },
+                keymap = {
+                    preset = "none",
+                    ["<CR>"] = { "accept", "fallback" },
+                    ["<C-space>"] = { "show", "fallback" },
+                    ["<ESC>"] = { "hide", "fallback" },
+                    ["<C-j>"] = { "select_next", "fallback" },
+                    ["<C-k>"] = { "select_prev", "fallback" },
+                    ["<C-h>"] = { "snippet_backward", "fallback" },
+                    ["<C-l>"] = { "snippet_forward", "fallback" },
                 },
 
-                ghost_text = {
-                    enabled = true,
+                appearance = {
+                    nerd_font_variant = "normal", -- 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
                 },
 
-                list = {
-                    selection = {
-                        preselect = false,
-                        auto_insert = false,
-                    },
-                },
-
-                menu = {
-                    draw = {
-                        columns = {
-                            { "label", "label_description", gap = 1 },
-                            { "kind_icon", "kind" },
-                            { "source_name" },
+                completion = {
+                    documentation = {
+                        auto_show = true,
+                        auto_show_delay_ms = 200,
+                        window = {
+                            border = "solid",
                         },
                     },
-                    scrolloff = 1,
-                    border = "rounded",
+
+                    ghost_text = {
+                        enabled = true,
+                    },
+
+                    list = {
+                        selection = {
+                            preselect = false,
+                            auto_insert = false,
+                        },
+                    },
+
+                    menu = {
+                        draw = {
+                            columns = {
+                                { "label", "label_description", gap = 1 },
+                                { "kind_icon", "kind" },
+                                { "source_name" },
+                            },
+                        },
+                        scrolloff = 1,
+                        border = "rounded",
+                    },
                 },
-            },
 
-            signature = {
-                enabled = true,
-                window = {
-                    border = "rounded",
+                signature = {
+                    enabled = true,
+                    window = {
+                        border = "rounded",
+                    },
                 },
-            },
 
-            sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
-                providers = {
-                    lsp = { fallbacks = {} }, -- enable buffer when LSP is available
-                },
-            },
-
-            snippets = { preset = "luasnip" },
-
-            fuzzy = { implementation = "prefer_rust_with_warning" },
-        },
-
-        opts_extend = { "sources.default" },
+                fuzzy = { implementation = "prefer_rust_with_warning" },
+            })
+        end,
     },
 }
