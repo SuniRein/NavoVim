@@ -76,6 +76,7 @@ return {
                 picker = {
                     name = "snacks.pick",
                 },
+                legacy_commands = false,
             }
         end,
     },
