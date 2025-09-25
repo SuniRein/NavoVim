@@ -21,6 +21,8 @@ end, { desc = "Show Buffer Status" })
 map_cr("n", "<M-q>", "bdelete", "Close Buffer")
 map_cr("n", "<M-Q>", "bdelete!", "Force Close Buffer")
 
+--- diagnostic
+
 local function diagnostic_goto(count, severity)
     return function()
         vim.diagnostic.jump({

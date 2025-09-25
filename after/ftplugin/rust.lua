@@ -15,3 +15,7 @@ map_rust_lsp("<localleader>c", "openCargo", "Open Cargo")
 map_rust_lsp("<localleader>o", "openDocs", "Open Docs")
 
 map_rust_lsp("J", "joinLines", "Join Lines")
+
+-- FIX: folds for rust functions is strange after move cursor
+vim.keymap.set("n", "<leader>zf", [[<cmd>g/\<fn\>/norm zc<CR>]], { desc = "Close folds for all functions" })
+vim.keymap.set("n", "<leader>zF", [[<cmd>g/\<fn\>/norm zo<CR>]], { desc = "Open folds for all functions" })
