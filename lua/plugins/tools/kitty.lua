@@ -1,3 +1,8 @@
+-- FIX: blink_cmp_kitty source error in ssh
+if vim.env.SSH_CLIENT ~= nil then
+    return {}
+end
+
 local M = {
     {
         "mikesmithgh/kitty-scrollback.nvim",

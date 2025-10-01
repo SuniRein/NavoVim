@@ -5,4 +5,7 @@ require("core.event")
 require("core.commands")
 require("core.plugins") -- must be loaded after options and keymaps
 
-require("yank")
+-- FIX: osc52 error in ssh
+if vim.env.SSH_CLIENT == nil then
+    require("yank")
+end

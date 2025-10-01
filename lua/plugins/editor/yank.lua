@@ -1,3 +1,7 @@
+if vim.env.SSH_CLIENT ~= nil then
+    return {}
+end
+
 return {
     {
         "gbprod/yanky.nvim",
