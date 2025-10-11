@@ -41,6 +41,8 @@ return {
   (#set! injection.include-children))]]
             )
 
+            require("luasnip").filetype_extend("markdown", { "obsidian" })
+
             return {
                 workspaces = {
                     {
