@@ -23,9 +23,7 @@ local function padding(str, len)
     return string.rep(" ", left_pad) .. str .. string.rep(" ", right_pad)
 end
 
-local function show_table(tbl)
-    return "[ " .. table.concat(tbl, ", ") .. " ]"
-end
+local function show_table(tbl) return "[ " .. table.concat(tbl, ", ") .. " ]" end
 
 local function refresh()
     local filename = vim.fn.expand("%:t")

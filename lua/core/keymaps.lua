@@ -14,9 +14,7 @@ end
 
 map_cr("n", "<C-s>", "w", "Save File")
 
-vim.keymap.set("n", "<C-p>", function()
-    require("utils.status").display()
-end, { desc = "Show Buffer Status" })
+vim.keymap.set("n", "<C-p>", function() require("utils.status").display() end, { desc = "Show Buffer Status" })
 
 map_cr("n", "<M-q>", "bdelete", "Close Buffer")
 map_cr("n", "<M-Q>", "bdelete!", "Force Close Buffer")

@@ -2,9 +2,7 @@ return {
     {
         "tzachar/highlight-undo.nvim",
         event = "LazyFile",
-        init = function()
-            vim.api.nvim_set_hl(0, "HighlightUndo", { fg = "#1E1E2E", bg = "#F5C2E7" })
-        end,
+        init = function() vim.api.nvim_set_hl(0, "HighlightUndo", { fg = "#1E1E2E", bg = "#F5C2E7" }) end,
         opts = {
             hlgroup = "HighlightUndo",
             duration = 300,

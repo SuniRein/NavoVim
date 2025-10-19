@@ -29,34 +29,26 @@ return {
         keys = {
             {
                 "<leader>sR",
-                function()
-                    open_grug_far("ripgrep")
-                end,
+                function() open_grug_far("ripgrep") end,
                 mode = "n",
                 desc = "Search and Replace (ripgrep)",
             },
             {
                 "<leader>sA",
-                function()
-                    open_grug_far("astgrep")
-                end,
+                function() open_grug_far("astgrep") end,
                 mode = "n",
                 desc = "Search and Replace (astgrep)",
             },
 
             {
                 "<leader>sR",
-                function()
-                    open_grug_far_within("ripgrep")
-                end,
+                function() open_grug_far_within("ripgrep") end,
                 mode = "v",
                 desc = "Search and Replace (ripgrep)",
             },
             {
                 "<leader>sA",
-                function()
-                    open_grug_far_within("astgrep")
-                end,
+                function() open_grug_far_within("astgrep") end,
                 mode = "v",
                 desc = "Search and Replace (astgrep)",
             },
@@ -70,9 +62,7 @@ return {
         keys = {
             {
                 "g/",
-                function()
-                    require("rip-substitute").sub()
-                end,
+                function() require("rip-substitute").sub() end,
                 mode = { "n", "x" },
                 desc = "Rip Substitute",
             },

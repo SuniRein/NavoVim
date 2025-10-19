@@ -2,9 +2,7 @@ return {
     {
         "obsidian-nvim/obsidian.nvim",
         version = "*",
-        cond = function()
-            return vim.fn.getcwd() == vim.fn.expand("~/Obsidian")
-        end,
+        cond = function() return vim.fn.getcwd() == vim.fn.expand("~/Obsidian") end,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "saghen/blink.cmp",

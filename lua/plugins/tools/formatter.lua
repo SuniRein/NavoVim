@@ -43,22 +43,14 @@ return {
         opts = function()
             Snacks.toggle({
                 name = "Auto Format (buffer)",
-                get = function()
-                    return vim.b.autoformat ~= false
-                end,
-                set = function(state)
-                    vim.b.autoformat = state
-                end,
+                get = function() return vim.b.autoformat ~= false end,
+                set = function(state) vim.b.autoformat = state end,
             }):map("<M-f>")
 
             Snacks.toggle({
                 name = "Auto Format (global)",
-                get = function()
-                    return vim.g.autoformat ~= false
-                end,
-                set = function(state)
-                    vim.g.autoformat = state
-                end,
+                get = function() return vim.g.autoformat ~= false end,
+                set = function(state) vim.g.autoformat = state end,
             }):map("<M-F>")
 
             local markers = require("utils.root_markers")
@@ -101,7 +93,6 @@ return {
 
                 formatters = {
                     fixjson = { prepend_args = { "--indent", "4" } },
-                    stylua = { prepend_args = { "--indent-type", "Spaces" } },
                     prettierd = {
                         cwd = require("conform.util").root_file(markers.prettier),
                         require_cwd = true,

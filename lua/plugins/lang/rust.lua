@@ -7,9 +7,7 @@ return {
             ---@class rustaceanvim.Config
             vim.g.rustaceanvim = {
                 tools = {
-                    open_url = function(url)
-                        vim.ui.open(url)
-                    end,
+                    open_url = function(url) vim.ui.open(url) end,
                 },
             }
         end,

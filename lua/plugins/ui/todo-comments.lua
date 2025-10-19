@@ -20,24 +20,18 @@ return {
         keys = {
             {
                 "[t",
-                function()
-                    require("todo-comments").jump_prev()
-                end,
+                function() require("todo-comments").jump_prev() end,
                 desc = "Previous Todo Comment",
             },
             {
                 "]t",
-                function()
-                    require("todo-comments").jump_next()
-                end,
+                function() require("todo-comments").jump_next() end,
                 desc = "Next Todo Comment",
             },
 
             {
                 "<leader>st",
-                function()
-                    Snacks.picker.todo_comments()
-                end,
+                function() Snacks.picker.todo_comments() end,
                 desc = "Todo Comments",
             },
         },

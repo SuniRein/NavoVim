@@ -8,9 +8,7 @@ return {
             local debug_enabled = false
             vim.api.nvim_create_autocmd("User", {
                 pattern = "DebugModeChanged",
-                callback = function(args)
-                    debug_enabled = args.data.enabled
-                end,
+                callback = function(args) debug_enabled = args.data.enabled end,
             })
 
             return {

@@ -25,12 +25,8 @@ return {
 
             Snacks.toggle({
                 name = "Smear Cursor",
-                get = function()
-                    return smear_cursor.enabled
-                end,
-                set = function(state)
-                    smear_cursor.enabled = state
-                end,
+                get = function() return smear_cursor.enabled end,
+                set = function(state) smear_cursor.enabled = state end,
             }):map("<leader>uS")
         end,
     },

@@ -43,9 +43,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
             timer:stop()
         end
         -- Cancel syncing to system clipboard if it is yanked 5 seconds before leaving Nvim.
-        timer:start(5000, 0, function()
-            sync_yank = false
-        end)
+        timer:start(5000, 0, function() sync_yank = false end)
     end,
 })
 

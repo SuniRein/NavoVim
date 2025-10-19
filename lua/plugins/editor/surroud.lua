@@ -22,9 +22,7 @@ return {
                 { mappings.replace, desc = "Replace Surrounding" },
                 { mappings.update_n_lines, desc = "Update `MiniSurround.config.n_lines`" },
             }
-            map = vim.tbl_filter(function(m)
-                return m[1] and #m[1] > 0
-            end, map)
+            map = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, map)
             return vim.list_extend(map, keys)
         end,
         opts = {

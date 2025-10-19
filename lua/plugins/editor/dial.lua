@@ -26,9 +26,7 @@ return {
             })
 
             local function manipulate(direction, mode)
-                return function()
-                    require("dial.map").manipulate(direction, mode)
-                end
+                return function() require("dial.map").manipulate(direction, mode) end
             end
 
             vim.keymap.set("n", "<M-a>", manipulate("increment", "normal"))

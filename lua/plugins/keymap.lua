@@ -25,9 +25,7 @@ return {
         keys = {
             {
                 "<leader>?",
-                function()
-                    require("which-key").show()
-                end,
+                function() require("which-key").show() end,
                 desc = "All Keymaps",
             },
         },

@@ -15,9 +15,7 @@ return {
                     name = "Launch file",
                     type = "codelldb",
                     request = "launch",
-                    program = function()
-                        return utils.pick_file()
-                    end,
+                    program = function() return utils.pick_file() end,
                     cwd = "${workspaceFolder}",
                     stopOnEntry = false,
                 },

@@ -6,9 +6,7 @@ local supported_filetypes = {
 }
 
 local disable_first_line_indent = {
-    add_padding = function(_, item)
-        return item.indent > 1
-    end,
+    add_padding = function(_, item) return item.indent > 1 end,
 }
 
 -- Reduces the `indent` by 1 level.

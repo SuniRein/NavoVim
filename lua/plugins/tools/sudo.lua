@@ -7,8 +7,6 @@ return {
         event = "LazyFile",
         priority = 10,
 
-        init = function()
-            vim.g.suda_smart_edit = 1
-        end,
+        init = function() vim.g.suda_smart_edit = 1 end,
     },
 }

@@ -20,9 +20,7 @@ return {
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
 
-            local function map(mode, l, r, desc)
-                vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-            end
+            local function map(mode, l, r, desc) vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc }) end
 
             map("n", "]h", function()
                 if vim.wo.diff then
@@ -40,7 +38,6 @@ return {
                 end
             end, "Prev Hunk")
 
-            -- stylua: ignore start
             map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
             map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
 
@@ -64,23 +61,22 @@ return {
             Snacks.toggle({
                 name = "Git Deleted",
                 get = function() return config.show_deleted end,
-                set = gs.toggle_deleted
+                set = gs.toggle_deleted,
             }):map("<leader>uG")
 
             Snacks.toggle({
                 name = "Git Word Diff",
                 get = function() return config.word_diff end,
-                set = gs.toggle_word_diff
+                set = gs.toggle_word_diff,
             }):map("<leader>uW")
 
             Snacks.toggle({
                 name = "Git Sign",
                 get = function() return config.signcolumn end,
-                set = gs.toggle_signs
+                set = gs.toggle_signs,
             }):map("<leader>ug")
 
-            map({'o', 'x'}, 'ih', gs.select_hunk, "Select Hunk")
-            -- stylua: ignore end
+            map({ "o", "x" }, "ih", gs.select_hunk, "Select Hunk")
         end,
     },
 }

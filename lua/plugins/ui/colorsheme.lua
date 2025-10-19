@@ -7,8 +7,6 @@ return {
         opts = {
             background = { light = "latte", dark = "mocha" }, -- latte, frappe, macchiato, mocha
         },
-        init = function()
-            vim.cmd.colorscheme("catppuccin")
-        end,
+        init = function() vim.cmd.colorscheme("catppuccin") end,
     },
 }

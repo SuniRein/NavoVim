@@ -4,9 +4,7 @@ local mv = require("markview")
 
 Snacks.toggle({
     name = "Markview",
-    get = function()
-        return mv.actions.__is_enabled()
-    end,
+    get = function() return mv.actions.__is_enabled() end,
     set = function(state)
         if state then
             mv.actions.enable()
@@ -18,9 +16,7 @@ Snacks.toggle({
 
 Snacks.toggle({
     name = "Markview Split",
-    get = function()
-        return type(mv.state.splitview_source) == "number"
-    end,
+    get = function() return type(mv.state.splitview_source) == "number" end,
     set = function(state)
         if state then
             mv.actions.splitOpen()
@@ -32,9 +28,7 @@ Snacks.toggle({
 
 Snacks.toggle({
     name = "Markview Table Border",
-    get = function()
-        return vim.b.noborder ~= true
-    end,
+    get = function() return vim.b.noborder ~= true end,
     set = function(state)
         vim.b.noborder = not state
         require("markview").commands.Render()

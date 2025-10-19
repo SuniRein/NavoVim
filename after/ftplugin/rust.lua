@@ -1,9 +1,7 @@
 local bufnr = vim.api.nvim_get_current_buf()
 
 local function map_rust_lsp(key, action, desc)
-    vim.keymap.set("n", key, function()
-        vim.cmd.RustLsp(action)
-    end, { silent = true, buffer = bufnr, desc = desc })
+    vim.keymap.set("n", key, function() vim.cmd.RustLsp(action) end, { silent = true, buffer = bufnr, desc = desc })
 end
 
 map_rust_lsp("<localleader>m", "expandMacro", "Expand Macro")

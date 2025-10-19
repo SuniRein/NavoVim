@@ -87,9 +87,7 @@ return {
     {
         "andymass/vim-matchup",
         event = "LazyFile",
-        init = function()
-            vim.g.matchup_matchparen_offscreen = { method = "status_manual" }
-        end,
+        init = function() vim.g.matchup_matchparen_offscreen = { method = "status_manual" } end,
         opts = {},
     },
 
@@ -118,9 +116,7 @@ return {
         keys = {
             {
                 "[c",
-                function()
-                    require("treesitter-context").go_to_context(vim.v.count1)
-                end,
+                function() require("treesitter-context").go_to_context(vim.v.count1) end,
                 desc = "Jump to Context",
             },
         },
