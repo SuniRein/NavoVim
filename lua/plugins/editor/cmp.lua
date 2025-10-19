@@ -5,15 +5,35 @@ return {
         build = "make install_jsregexp",
         lazy = true,
         opts = function()
+            local ls = require("luasnip")
+
             vim.cmd(("source %s"):format(vim.fn.stdpath("config") .. "/snippets/snippet.vim"))
             require("luasnip.loaders.from_snipmate").lazy_load()
             require("luasnip.loaders.from_lua").lazy_load()
 
             vim.keymap.set("n", "<leader>ss", require("luasnip.loaders").edit_snippet_files, { desc = "Edit Snippets" })
 
+            local function when_choice(action)
+                return function()
+                    if ls.choice_active() then
+                        action()
+                    end
+                end
+            end
+            vim.keymap.set({ "i", "s" }, "<C-n>", when_choice(function() require("luasnip").change_choice(1) end))
+            vim.keymap.set({ "i", "s" }, "<C-p>", when_choice(function() require("luasnip").change_choice(-1) end))
+            vim.keymap.set("i", "<C-u>", when_choice(require("luasnip.extras.select_choice")))
+
             return {
                 enable_autosnippets = true,
                 update_events = "TextChanged,TextChangedI",
+                ext_opts = {
+                    [require("luasnip.util.types").choiceNode] = {
+                        active = {
+                            virt_text = { { "choiceNode", "Comment" } },
+                        },
+                    },
+                },
                 store_selection_keys = "<Tab>",
             }
         end,
