@@ -21,8 +21,12 @@ return {
                         elements = { "let mut", "let" },
                     }),
                 },
+
                 javascript = js_ts_config(),
                 typescript = js_ts_config(),
+                javascriptreact = js_ts_config(),
+                typescriptreact = js_ts_config(),
+                vue = js_ts_config(),
             })
 
             local function manipulate(direction, mode)
