@@ -18,11 +18,17 @@ return {
                         outline.close()
                     end
                 end,
+                notify = false,
             }):map("<leader>uo")
 
             return {
                 preview_window = {
                     border = "rounded",
+                },
+                providers = {
+                    lsp = {
+                        blacklist_clients = { "obsidian-ls" },
+                    },
                 },
             }
         end,
