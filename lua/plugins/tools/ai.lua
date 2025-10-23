@@ -56,6 +56,9 @@ return {
                 module = "blink-copilot",
                 score_offset = 100,
                 async = true,
+                opts = {
+                    kind_icon = "", -- remove extra gap
+                },
             })
         end,
     },
