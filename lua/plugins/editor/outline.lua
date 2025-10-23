@@ -22,7 +22,6 @@ return {
 
             return {
                 preview_window = {
-                    auto_preview = true,
                     border = "rounded",
                 },
             }
