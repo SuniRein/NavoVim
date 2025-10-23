@@ -59,16 +59,18 @@ return {
                     end
                     return suffix
                 end,
-                note_frontmatter_func = function(note)
-                    local out = { aliases = note.aliases, tags = note.tags }
-                    if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-                        for k, v in pairs(note.metadata) do
-                            out[k] = v
+                frontmatter = {
+                    func = function(note)
+                        local out = { aliases = note.aliases, tags = note.tags }
+                        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                            for k, v in pairs(note.metadata) do
+                                out[k] = v
+                            end
                         end
-                    end
 
-                    return out
-                end,
+                        return out
+                    end,
+                },
                 completion = {
                     nvim_cmp = false,
                     blink = true,
