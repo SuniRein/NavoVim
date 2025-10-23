@@ -177,7 +177,11 @@ return {
                 },
 
                 cmdline = {
-                    keymap = { preset = "inherit" },
+                    keymap = {
+                        preset = "inherit",
+                        ["<ESC>"] = false,
+                        ["<C-e>"] = { "hide" },
+                    },
                     completion = { menu = { auto_show = true } },
                 },
             })
