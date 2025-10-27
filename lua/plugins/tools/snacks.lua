@@ -39,6 +39,7 @@ return {
             { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
             { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
             { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
+            { "<leader>e", function() Snacks.picker.explorer() end, desc = "Explorer" },
 
             -- notifications
             { "<leader>nl", function() Snacks.picker.notifications() end, desc = "History List" },
@@ -73,7 +74,6 @@ return {
 
             { '<leader>s"', function() Snacks.picker.registers() end, desc = "Registers" },
             { "<leader>s/", function() Snacks.picker.search_history() end, desc = "Search History" },
-            { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
             { "<leader>sc", function() Snacks.picker.command_history() end, desc = "Command History" },
             { "<leader>sC", function() Snacks.picker.commands() end, desc = "Commands" },
             { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
@@ -83,10 +83,14 @@ return {
             { "<leader>si", function() Snacks.picker.icons() end, desc = "Icons" },
             { "<leader>sj", function() Snacks.picker.jumps() end, desc = "Jumps" },
             { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
+            { "<leader>sl", function() Snacks.picker.lsp_config() end, desc = "LSP Configurations" },
             { "<leader>sm", function() Snacks.picker.man() end, desc = "Man Pages" },
             { "<leader>sp", function() Snacks.picker.lazy() end, desc = "Search for Plugin Spec" },
             { "<leader>sr", function() Snacks.picker.resume() end, desc = "Resume" },
             { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
+
+            { "<leader>is", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+            { "<leader>iS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Symbols (Workspace)" },
 
             { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
         },
