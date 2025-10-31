@@ -34,3 +34,8 @@ Snacks.toggle({
         require("markview").commands.Render()
     end,
 }):map("<localleader>b", { buffer = bufnr })
+
+require("which-key").add({
+    { "<leader>m", group = "Markdown", buffer = bufnr, icon = { icon = " ", color = "orange" } },
+    { "<leader>h", group = "Markdown Header", buffer = bufnr, icon = { icon = " ", color = "cyan" } },
+})

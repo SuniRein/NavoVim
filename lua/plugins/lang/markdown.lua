@@ -74,4 +74,13 @@ return {
             vim.fn["mkdp#util#install"]()
         end,
     },
+
+    {
+        "yousefhadder/markdown-plus.nvim",
+        ft = { "markdown" },
+        opts = {
+            enabled = true,
+            filetypes = { "markdown" },
+        },
+    },
 }
