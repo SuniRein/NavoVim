@@ -22,9 +22,7 @@ return {
             on_attach = function(bufnr)
                 local crates = require("crates")
 
-                local function map(key, func, desc)
-                    vim.keymap.set("n", key, func, { buffer = bufnr, desc = "crates: " .. desc })
-                end
+                local function map(key, func, desc) vim.keymap.set("n", key, func, { buffer = bufnr, desc = desc }) end
 
                 map("K", function()
                     if crates.popup_available() then
