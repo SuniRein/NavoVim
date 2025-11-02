@@ -17,6 +17,9 @@ return {
             topdelete = { text = "" },
             changedelete = { text = "~" },
         },
+        preview_config = {
+            border = "rounded",
+        },
         on_attach = function(buffer)
             local gs = package.loaded.gitsigns
 
@@ -41,8 +44,8 @@ return {
             map("n", "]H", function() gs.nav_hunk("last") end, "Last Hunk")
             map("n", "[H", function() gs.nav_hunk("first") end, "First Hunk")
 
-            map({ "n", "v" }, "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", "Stage Hunk")
-            map({ "n", "v" }, "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", "Reset Hunk")
+            map({ "n", "v" }, "<leader>gs", gs.stage_hunk, "Stage Hunk")
+            map({ "n", "v" }, "<leader>gr", gs.reset_hunk, "Reset Hunk")
             map("n", "<leader>gS", gs.stage_buffer, "Stage Buffer")
             map("n", "<leader>gR", gs.reset_buffer, "Reset Buffer")
             map("n", "<leader>gu", gs.undo_stage_hunk, "Undo Stage Hunk")
@@ -51,10 +54,13 @@ return {
             map("n", "<leader>gP", gs.preview_hunk, "Preview Hunk")
 
             map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, "Blame Line")
-            map("n", "<leader>gB", function() gs.blame() end, "Blame Buffer")
+            map("n", "<leader>gB", gs.blame, "Blame Buffer")
 
             map("n", "<leader>gd", gs.diffthis, "Diff This")
             map("n", "<leader>gD", function() gs.diffthis("~") end, "Diff This ~")
+
+            map("n", "<leader>lg", gs.setqflist, "Git Hunk (buffer)")
+            map("n", "<leader>lG", function() gs.setqflist("all") end, "Git Hunk (global)")
 
             local config = require("gitsigns.config").config
 
