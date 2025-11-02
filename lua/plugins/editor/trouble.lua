@@ -31,18 +31,23 @@ return {
         keys = {
             {
                 "<leader>ld",
-                "<cmd>Trouble diagnostics toggle<CR>",
-                desc = "Diagnostics",
+                "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
+                desc = "Diagnostics (buffer)",
             },
             {
                 "<leader>lD",
-                "<cmd>Trouble diagnostics toggle filter.buf=0<CR>",
-                desc = "Diagnostics (Buffer)",
+                "<cmd>Trouble diagnostics toggle<CR>",
+                desc = "Diagnostics (global)",
             },
             {
                 "<leader>le",
+                "<cmd>Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.ERROR filter.buf=0<CR>",
+                desc = "Diagnostics Error (buffer)",
+            },
+            {
+                "<leader>lE",
                 "<cmd>Trouble diagnostics toggle filter.severity=vim.diagnostic.severity.ERROR<CR>",
-                desc = "Diagnostics Error",
+                desc = "Diagnostics Error (global)",
             },
             {
                 "<leader>ll",
