@@ -1,3 +1,5 @@
+vim.wo.wrap = false
+
 local bufnr = vim.api.nvim_get_current_buf()
 
 local mv = require("markview")
@@ -25,15 +27,6 @@ Snacks.toggle({
         end
     end,
 }):map("<localleader>s", { buffer = bufnr })
-
-Snacks.toggle({
-    name = "Markview Table Border",
-    get = function() return vim.b.noborder ~= true end,
-    set = function(state)
-        vim.b.noborder = not state
-        require("markview").commands.Render()
-    end,
-}):map("<localleader>b", { buffer = bufnr })
 
 require("which-key").add({
     { "<leader>m", group = "Markdown", buffer = bufnr, icon = { icon = " ", color = "orange" } },
