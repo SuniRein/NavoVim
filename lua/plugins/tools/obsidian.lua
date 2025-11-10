@@ -23,8 +23,14 @@ return {
                 ox = { "open", "Open in Obsidian App" },
             }
             for key, value in pairs(keymaps) do
-                vim.keymap.set("n", "<localleader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
+                vim.keymap.set("n", "<leader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
             end
+
+            require("which-key").add({
+                "<leader>o",
+                group = "Obsidian",
+                icon = { icon = "📝 ", color = "yellow" },
+            })
 
             vim.treesitter.query.set(
                 "markdown_inline",
