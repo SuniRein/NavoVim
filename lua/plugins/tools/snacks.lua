@@ -20,6 +20,7 @@ return {
                 preset = { header = logo },
             },
             dim = {},
+            gh = {},
             indent = {
                 chunk = { enabled = true },
                 filter = function(buf)
@@ -60,6 +61,16 @@ return {
             -- git
             { "<leader>gx", function() Snacks.gitbrowse() end, desc = "Open Browser", mode = { "n", "v" } },
             { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
+
+            -- gh
+            { "<leader>ghi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
+            { "<leader>ghI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
+            { "<leader>ghp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+            {
+                "<leader>ghP",
+                function() Snacks.picker.gh_pr({ state = "all" }) end,
+                desc = "GitHub Pull Requests (all)",
+            },
 
             -- search
             { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
