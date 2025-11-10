@@ -31,4 +31,5 @@ Snacks.toggle({
 require("which-key").add({
     { "<leader>m", group = "Markdown", buffer = bufnr, icon = { icon = " ", color = "orange" } },
     { "<leader>h", group = "Markdown Header", buffer = bufnr, icon = { icon = " ", color = "cyan" } },
+    { "<leader>T", group = "Markdown Table", buffer = bufnr, icon = { icon = " ", color = "yellow" } },
 })

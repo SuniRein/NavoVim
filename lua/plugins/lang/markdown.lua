@@ -70,6 +70,11 @@ return {
         ft = { "markdown" },
         opts = {
             enabled = true,
+            table = {
+                keymaps = {
+                    prefix = "<leader>T",
+                },
+            },
             filetypes = { "markdown" },
         },
     },
