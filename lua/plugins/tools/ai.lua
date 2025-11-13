@@ -18,6 +18,31 @@ return {
                 chat = { adapter = "copilot" },
                 inline = { adapter = "copilot" },
             },
+            prompt_library = {
+                ["Generate a Commit Message"] = {
+                    prompts = {
+                        {
+                            role = "user",
+                            content = function()
+                                local diff = vim.system({ "git", "diff", "--no-ext-diff", "--staged" }, { text = true })
+                                    :wait()
+                                return string.format(
+                                    [[You are an expert at following the Conventional Commit specification. Given the git diff listed below, please generate a commit message for me. Write the commit message in English.
+
+````diff
+%s
+````
+]],
+                                    diff.stdout
+                                )
+                            end,
+                            opts = {
+                                contains_code = true,
+                            },
+                        },
+                    },
+                },
+            },
             opts = {
                 language = "Chinese",
             },
