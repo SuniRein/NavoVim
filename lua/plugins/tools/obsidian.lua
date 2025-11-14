@@ -11,27 +11,6 @@ return {
         },
         ---@module "obsidian"
         opts = function()
-            local keymaps = {
-                oo = { "quick_switch", "Search by file name" },
-                oO = { "search", "Search by content" },
-                on = { "new", "Create a new note" },
-                of = { "follow_link", "Follow link under cursor" },
-                ob = { "banklinks", "Search backlinks" },
-                ol = { "links", "Search all links" },
-                op = { "paste_img", "Paste image from clipboard" },
-                ow = { "workspace", "Switch workspace" },
-                ox = { "open", "Open in Obsidian App" },
-            }
-            for key, value in pairs(keymaps) do
-                vim.keymap.set("n", "<leader>" .. key, "<cmd>Obsidian " .. value[1] .. "<CR>", { desc = value[2] })
-            end
-
-            require("which-key").add({
-                "<leader>o",
-                group = "Obsidian",
-                icon = { icon = "📝 ", color = "yellow" },
-            })
-
             vim.treesitter.query.set(
                 "markdown_inline",
                 "injections",

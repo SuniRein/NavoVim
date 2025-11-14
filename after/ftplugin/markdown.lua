@@ -1,35 +1,54 @@
-vim.wo.wrap = false
+local function setupMarkview()
+    vim.wo.wrap = false
 
-local bufnr = vim.api.nvim_get_current_buf()
+    local mv = require("markview")
 
-local mv = require("markview")
+    vim.keymap.set("n", "<localleader>m", mv.actions.toggle, { desc = "Toggle Markview", buffer = true })
+    vim.keymap.set("n", "<localleader>s", mv.actions.splitToggle, { desc = "Toggle Markview Split", buffer = true })
+end
 
-Snacks.toggle({
-    name = "Markview",
-    get = function() return mv.actions.__is_enabled() end,
-    set = function(state)
-        if state then
-            mv.actions.enable()
-        else
-            mv.actions.disable()
-        end
-    end,
-}):map("<localleader>m", { buffer = bufnr })
+local function setupObsidian()
+    local ok, obsidian = pcall(require, "obsidian")
+    if not ok or obsidian == nil then
+        return
+    end
 
-Snacks.toggle({
-    name = "Markview Split",
-    get = function() return type(mv.state.splitview_source) == "number" end,
-    set = function(state)
-        if state then
-            mv.actions.splitOpen()
-        else
-            mv.actions.splitClose()
-        end
-    end,
-}):map("<localleader>s", { buffer = bufnr })
+    local keymaps = {
+        oo = { "quick_switch", "Search by file name" },
+        oO = { "search", "Search by content" },
+        on = { "new", "Create a new note" },
+        of = { "follow_link", "Follow link under cursor" },
+        ob = { "banklinks", "Search backlinks" },
+        ol = { "links", "Search all links" },
+        op = { "paste_img", "Paste image from clipboard" },
+        ow = { "workspace", "Switch workspace" },
+        ox = { "open", "Open in Obsidian App" },
+    }
+    for key, value in pairs(keymaps) do
+        vim.keymap.set(
+            "n",
+            "<localleader>" .. key,
+            "<cmd>Obsidian " .. value[1] .. "<CR>",
+            { desc = value[2], buffer = true }
+        )
+    end
 
-require("which-key").add({
-    { "<leader>m", group = "Markdown", buffer = bufnr, icon = { icon = " ", color = "orange" } },
-    { "<leader>h", group = "Markdown Header", buffer = bufnr, icon = { icon = " ", color = "cyan" } },
-    { "<leader>T", group = "Markdown Table", buffer = bufnr, icon = { icon = " ", color = "yellow" } },
-})
+    require("which-key").add({
+        "<localleader>o",
+        group = "Obsidian",
+        icon = { icon = "📝 ", color = "yellow" },
+        buffer = true,
+    })
+end
+
+local function setupMarkdownPlus()
+    require("which-key").add({
+        { "<leader>m", group = "Markdown", buffer = true, icon = { icon = " ", color = "orange" } },
+        { "<leader>h", group = "Markdown Header", buffer = true, icon = { icon = " ", color = "cyan" } },
+        { "<leader>T", group = "Markdown Table", buffer = true, icon = { icon = " ", color = "yellow" } },
+    })
+end
+
+setupMarkview()
+setupObsidian()
+setupMarkdownPlus()
