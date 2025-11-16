@@ -30,23 +30,35 @@ local callouts = {
 
 local ret = {}
 
+---callout without title
 for _, callout in ipairs(callouts) do
     table.insert(
         ret,
         s(
-            {
-                trig = "!" .. callout,
-            },
+            { trig = "!" .. callout },
+            fmt(
+                [[
+                    > [!{}]
+                    > {}
+                ]],
+                { callout, i(0) }
+            )
+        )
+    )
+end
+
+--- callout with title
+for _, callout in ipairs(callouts) do
+    table.insert(
+        ret,
+        s(
+            { trig = "!=" .. callout },
             fmt(
                 [[
                     > [!{}] {}
                     > {}
                 ]],
-                {
-                    callout,
-                    i(1, "TITLE"),
-                    i(0),
-                }
+                { callout, i(1, "TITLE"), i(0) }
             )
         )
     )
