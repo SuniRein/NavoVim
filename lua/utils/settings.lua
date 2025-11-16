@@ -13,6 +13,7 @@ settings["lsp_enabled"] = {
     "nushell",
     -- "rust_analyzer",
     "svlangserver",
+    "tailwindcss",
     "taplo",
     "tinymist",
     "typos_lsp",
