@@ -50,7 +50,7 @@ return {
                 enable_hsl_without_function = true, -- foreground: 0 69% 69%;
                 enable_var_usage = true, -- var(--testing-color)
                 enable_named_colors = true, -- 'green'
-                enable_tailwind = false, -- 'bg-blue-500'
+                enable_tailwind = true, -- 'bg-blue-500'
             }
         end,
     },
