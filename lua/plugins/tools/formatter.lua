@@ -86,6 +86,8 @@ return {
                     typescriptreact = { "prettierd", lsp_format = "last" },
                     vue = { "prettierd", lsp_format = "last" },
 
+                    sql = { "sqlfluff" },
+
                     yaml = { "prettierd" },
 
                     json = { "fixjson", lsp_format = "last" },

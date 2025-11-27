@@ -1,4 +1,7 @@
 vim.filetype.add({
+    filename = {
+        [".sqlfluff"] = "cfg",
+    },
     pattern = {
         [".*/.github/workflows/.*%.yml"] = "yaml.ghaction",
         [".*/.github/workflows/.*%.yaml"] = "yaml.ghaction",
