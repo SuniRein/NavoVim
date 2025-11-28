@@ -62,7 +62,7 @@ return {
 
                 format_on_save = function(bufnr)
                     if vim.g.autoformat ~= false and vim.b.autoformat ~= false then
-                        return { timeout_ms = 500, filter = format_filter }
+                        return { timeout_ms = 1000, filter = format_filter }
                     end
                     return nil
                 end,
