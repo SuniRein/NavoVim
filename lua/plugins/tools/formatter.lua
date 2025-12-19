@@ -17,7 +17,21 @@ return {
             { "<M-F>" },
         },
 
-        init = function()
+        ---@module "conform"
+        ---@type fun(): conform.setupOpts
+        opts = function()
+            Snacks.toggle({
+                name = "Auto Format (buffer)",
+                get = function() return vim.b.autoformat ~= false end,
+                set = function(state) vim.b.autoformat = state end,
+            }):map("<M-f>")
+
+            Snacks.toggle({
+                name = "Auto Format (global)",
+                get = function() return vim.g.autoformat ~= false end,
+                set = function(state) vim.g.autoformat = state end,
+            }):map("<M-F>")
+
             vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
             vim.api.nvim_create_user_command("Format", function(args)
@@ -36,31 +50,23 @@ return {
                     filter = format_filter,
                 })
             end, { range = true })
-        end,
 
-        ---@module "conform"
-        ---@type fun(): conform.setupOpts
-        opts = function()
-            Snacks.toggle({
-                name = "Auto Format (buffer)",
-                get = function() return vim.b.autoformat ~= false end,
-                set = function(state) vim.b.autoformat = state end,
-            }):map("<M-f>")
-
-            Snacks.toggle({
-                name = "Auto Format (global)",
-                get = function() return vim.g.autoformat ~= false end,
-                set = function(state) vim.g.autoformat = state end,
-            }):map("<M-F>")
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = vim.api.nvim_create_augroup("EslintFixAll", { clear = true }),
+                pattern = { "*.js", "*.ts", "*.jsx", "*.tsx", "*.vue", "*.html", "*.css" },
+                command = "silent! LspEslintFixAll",
+            })
 
             local markers = require("utils.root_markers")
 
             return {
+                notify_no_formatters = false,
+
                 default_format_opts = {
                     lsp_format = "fallback",
                 },
 
-                format_on_save = function(bufnr)
+                format_on_save = function()
                     if vim.g.autoformat ~= false and vim.b.autoformat ~= false then
                         return { timeout_ms = 1000, filter = format_filter }
                     end

@@ -23,7 +23,6 @@ settings["lsp_enabled"] = {
 }
 
 settings["lsp_formatters"] = {
-    "eslint",
     "jsonls",
     "taplo",
     "tinymist",
