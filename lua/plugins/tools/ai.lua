@@ -5,6 +5,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
+        version = "*",
         opts = {
             display = {
                 action_palette = {
@@ -14,7 +15,7 @@ return {
                     },
                 },
             },
-            strategies = {
+            interactions = {
                 chat = { adapter = "copilot" },
                 inline = { adapter = "copilot" },
             },
