@@ -14,3 +14,8 @@ vim.api.nvim_create_user_command("Indent", function(opts)
 end, {
     nargs = 1,
 })
+
+vim.api.nvim_create_user_command("ReadOnly", function()
+    Snacks.toggle.diagnostics():set(false) -- Disable diagnostics
+    vim.wo.modifiable = false
+end, {})
