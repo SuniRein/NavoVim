@@ -9,6 +9,7 @@
 | [html](https://github.com/microsoft/vscode-html-languageservice) | `html` | ✅ |
 | [vuels](https://github.com/vuejs/language-tools) | `vue` | ✅ |
 | [vtsls](https://github.com/yioneko/vtsls) | `vue` `ts` `js` | ✅ |
+| [tailwindcss](https://github.com/tailwindlabs/tailwindcss-intellisense) | `tailwindcss` | ✅ |
 | [eslint-lsp](https://github.com/Microsoft/vscode-eslint) | ... | ✅ |
 | [basedpyright](https://docs.basedpyright.com/) | `python` | ✅ |
 | [lua_ls](https://github.com/LuaLS/lua-language-server) | `lua` | ✅ |
@@ -20,8 +21,10 @@
 | [bashls](https://github.com/bash-lsp/bash-language-server) | `bash` `zsh` | ✅ |
 | [neocmake](https://github.com/neocmakelsp/neocmakelsp) | `cmake` | ✅ |
 | [just](https://github.com/terror/just-lsp) | `just` | ✅ |
-| [nushell](https://www.nushell.sh) | `nushell` | |
-| [typos_lsp](https://github.com/tekumara/typos-lsp) | | ✅ |
+| [nushell](https://www.nushell.sh) | `nushell` | ❌ |
+| [typos_lsp](https://github.com/tekumara/typos-lsp) | `*` | ✅ |
+| [docker_compose_language_server](https://github.com/microsoft/compose-language-service) | `yaml.docker-compose` | ✅ |
+| [dockerls](https://github.com/rcjsuen/dockerfile-language-server) | `dockerfile` | ✅ |
 
 ### 备注
 
@@ -37,9 +40,11 @@
 
 | 名称 | 语言 | Mason |
 | --- | --- | --: |
-| [verilator](https://github.com/verilator/verilator) | `verilog` | |
+| [verilator](https://github.com/verilator/verilator) | `verilog` | ❌ |
 | [shellcheck](https://www.shellcheck.net/) | `bash` `zsh` | ✅ |
-| [`actionlint`](https://github.com/rhysd/actionlint) | `ghaction` | ✅ |
+| [actionlint](https://github.com/rhysd/actionlint) | `ghaction` | ✅ |
+| [hadolint](https://github.com/hadolint/hadolint) | `dockerfile` | ✅ |
+| [sqlfluff](https://github.com/sqlfluff/sqlfluff) | `sql` | ✅ |
 
 ### 备注
 
@@ -106,3 +111,5 @@
 - [XMake](https://xmake.io)：依靠 `Mythos-404/xmake.nvim` 在 C++ 项目中集成
 
 - [Yazi](https://yazi-rs.github.io/)：依靠 `mikavilpas/yazi.nvim` 作为文件管理器
+
+- [OpenCode](https://opencode.ai/)：用 `https://opencode.ai/` 集成的 AI 插件
