@@ -4,6 +4,8 @@ settings["lsp_enabled"] = {
     "basedpyright",
     "bashls",
     "clangd",
+    "dockerls",
+    "docker_compose_language_service",
     "eslint",
     "html",
     "jsonls",

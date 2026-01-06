@@ -1,6 +1,9 @@
 vim.filetype.add({
     filename = {
         [".sqlfluff"] = "cfg",
+
+        ["docker-compose.yml"] = "yaml.docker-compose",
+        ["docker-compose.yaml"] = "yaml.docker-compose",
     },
     pattern = {
         [".*/.github/workflows/.*%.yml"] = "yaml.ghaction",
