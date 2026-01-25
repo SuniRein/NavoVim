@@ -2,7 +2,6 @@ local supported_filetypes = {
     "markdown",
     "vimdoc",
     "typst",
-    "codecompanion",
 }
 
 local disable_first_line_indent = {
@@ -26,7 +25,6 @@ return {
         opts = {
             preview = {
                 filetypes = supported_filetypes,
-                ignore_buftypes = {}, -- require for codecompanion
                 hybrid_modes = { "n" },
                 linewise_hybrid_mode = true,
             },
