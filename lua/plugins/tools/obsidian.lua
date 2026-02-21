@@ -1,8 +1,14 @@
+local function is_obsidian_vault()
+    local path = vim.fn.getcwd() .. "/.obsidian"
+    local stat = vim.uv.fs_stat(path)
+    return stat ~= nil and stat.type == "directory"
+end
+
 return {
     {
         "obsidian-nvim/obsidian.nvim",
         version = "*",
-        cond = function() return vim.fn.getcwd() == vim.fn.expand("~/Obsidian") end,
+        cond = is_obsidian_vault,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "saghen/blink.cmp",
@@ -30,7 +36,7 @@ return {
                 workspaces = {
                     {
                         name = "Obsidian",
-                        path = "~/Obsidian",
+                        path = "~/Documents/Obsidian Vault",
                     },
                 },
                 note_id_func = function(title)
