@@ -13,6 +13,7 @@ Treesitter.ignored = {}
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        branch = "master",
         build = ":TSUpdate",
         dependencies = {
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
