@@ -65,8 +65,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "VimEnter" }, {
     callback = function()
         -- In case switching from another Nvim instance.
         vim.defer_fn(function()
-            local system_clipboard = vim.fn.getreg("+")
-            if system_clipboard ~= vim.fn.getreg('""') then
+            local status, system_clipboard = pcall(vim.fn.getreg, "+")
+            if not status and system_clipboard ~= vim.fn.getreg('""') then
                 vim.fn.setreg('"', system_clipboard)
             end
         end, 200)
