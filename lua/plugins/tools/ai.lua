@@ -6,12 +6,7 @@ return {
         },
         config = function()
             ---@type opencode.Opts
-            vim.g.opencode_opts = {
-                provider = {
-                    cmd = vim.fn.exepath("opencode"),
-                    enabled = "kitty",
-                },
-            }
+            vim.g.opencode_opts = {}
 
             vim.o.autoread = true
 
