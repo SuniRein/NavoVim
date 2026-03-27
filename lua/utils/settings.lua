@@ -7,6 +7,7 @@ settings["lsp_enabled"] = {
     "dockerls",
     "docker_compose_language_service",
     "eslint",
+    "gopls",
     "html",
     "jsonls",
     "just",

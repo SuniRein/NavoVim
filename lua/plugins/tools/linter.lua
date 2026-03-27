@@ -8,6 +8,7 @@ return {
             dockerfile = { "hadolint" },
             ghaction = { "actionlint" },
             sql = { "sqlfluff" },
+            go = { "golangcilint" },
         }
 
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave", "TextChanged" }, {

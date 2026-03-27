@@ -92,6 +92,8 @@ return {
                     typescriptreact = { "prettierd", lsp_format = "last" },
                     vue = { "prettierd", lsp_format = "last" },
 
+                    go = { "goimports", "gofumpt" },
+
                     sql = { "sqlfluff" },
 
                     yaml = { "prettierd" },
