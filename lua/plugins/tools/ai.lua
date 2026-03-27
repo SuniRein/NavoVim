@@ -48,6 +48,21 @@ return {
                 yaml = true,
             },
         },
+        config = function(_, opts)
+            require("copilot").setup(opts)
+
+            Snacks.toggle({
+                name = "Copilot",
+                get = function() return require("copilot.client").buf_is_attached(0) == true end,
+                set = function(enabled)
+                    if enabled then
+                        require("copilot.command").attach()
+                    else
+                        require("copilot.command").detach()
+                    end
+                end,
+            }):map("<M-c>")
+        end,
     },
     {
         "saghen/blink.cmp",
