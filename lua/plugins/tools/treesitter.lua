@@ -1,87 +1,62 @@
-local Treesitter = {}
-
-Treesitter.ensured = {
-    "c",
-    "cpp",
-    "lua",
-    "vim",
-    "vimdoc",
-}
-
-Treesitter.ignored = {}
-
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch = "master",
+        branch = "main",
         build = ":TSUpdate",
         dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "nvim-treesitter/nvim-treesitter-context",
             { "OXY2DEV/markview.nvim", optional = true }, -- markview should be loaded before treesitter
-            { "nvim-treesitter/nvim-treesitter-context" },
-            { "nvim-treesitter/nvim-treesitter-textobjects" },
         },
         lazy = false,
         config = function()
-            require("nvim-treesitter.configs").setup({
-                modules = {},
-                ensure_installed = Treesitter.ensured,
-                ignore_install = Treesitter.ignored,
-                sync_install = false,
-                auto_install = true,
-
-                highlight = {
-                    enable = true,
-                    disable = function(ft, bufnr)
-                        -- disable for gitcommit and large files
-                        if
-                            vim.tbl_contains({ "gitcommit" }, ft)
-                            or (vim.api.nvim_buf_line_count(bufnr) > 7500 and ft ~= "vimdoc")
-                        then
-                            return true
-                        end
-                    end,
-                    additional_vim_regex_highlighting = false,
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "python",
+                    "lua",
+                    "vue",
+                    "html",
+                    "css",
+                    "javascript",
+                    "typescript",
+                    "c",
+                    "cpp",
+                    "rust",
+                    "go",
+                    "json",
+                    "yaml",
+                    "toml",
+                    "sql",
+                    "Dockerfile",
                 },
-
-                -- indentation based on treesitter for the = operator
-                indent = { enable = true },
-
-                -- with nvim-treesitter-textobjects
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
-                            ["aC"] = "@comment.outer",
-                        },
-                        include_surrounding_whitespace = false,
-                    },
-                    move = {
-                        enable = true,
-                        set_jumps = true,
-                        goto_next_start = {
-                            ["]f"] = "@function.outer",
-                            ["]c"] = "@class.outer",
-                        },
-                        goto_next_end = {
-                            ["]F"] = "@function.outer",
-                            ["]C"] = "@class.outer",
-                        },
-                        goto_previous_start = {
-                            ["[f"] = "@function.outer",
-                            ["[c"] = "@class.outer",
-                        },
-                        goto_previous_end = {
-                            ["[F"] = "@function.outer",
-                            ["[C"] = "@class.outer",
-                        },
-                    },
-                },
+                callback = function() vim.treesitter.start() end,
             })
+
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        init = function()
+            -- Disable entire built-in ftplugin mappings to avoid conflicts.
+            -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+            vim.g.no_plugin_maps = true
+        end,
+        config = function()
+            require("nvim-treesitter-textobjects").setup({})
+
+            local select = require("nvim-treesitter-textobjects.select")
+
+            local function set_textobject(key, query)
+                vim.keymap.set({ "x", "o" }, key, function() select.select_textobject(query, "textobjects") end)
+            end
+
+            set_textobject("af", "@function.outer")
+            set_textobject("if", "@function.inner")
+            set_textobject("ac", "@class.outer")
+            set_textobject("ic", "@class.inner")
         end,
     },
 
